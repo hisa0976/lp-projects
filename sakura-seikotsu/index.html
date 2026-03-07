@@ -120,6 +120,7 @@
       <a href="#reasons" class="nav-link transition-colors">選ばれる理由</a>
       <a href="#flow" class="nav-link transition-colors">施術の流れ</a>
       <a href="#price" class="nav-link transition-colors">料金</a>
+      <a href="#simulator" class="nav-link transition-colors">料金シミュレーター</a>
       <a href="#faq" class="nav-link transition-colors">よくある質問</a>
       <a href="#access" class="nav-link transition-colors">アクセス</a>
     </div>
@@ -472,7 +473,267 @@
   </div>
 </section>
 
-<!-- ===== 6. 患者様の声 ===== -->
+<!-- ===== 6. 施術料金シミュレーター ===== -->
+<section id="simulator" class="py-20 px-4 bg-green-light">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="text-center mb-10">
+      <p class="text-green text-xs tracking-[0.3em] mb-2">COST SIMULATOR</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800">施術料金シミュレーター</h2>
+      <div class="green-line w-20 mx-auto mt-4 mb-4"></div>
+      <p class="text-gray-500 text-sm">症状・保険・通院頻度を選ぶと、料金の目安がリアルタイムで表示されます。</p>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+
+      <!-- 入力エリア -->
+      <div class="p-6 md:p-8 space-y-8">
+
+        <!-- STEP 1: 症状 -->
+        <div>
+          <p class="font-bold text-gray-800 mb-4 flex items-center gap-2">
+            <span class="bg-green text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0">1</span>
+            症状を選んでください <span class="text-gray-400 text-xs font-normal">（複数選択可）</span>
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="symptom-grid">
+            <label class="sim-label flex items-center gap-2 rounded-xl p-3 cursor-pointer border-2 border-green-light hover:border-green transition-colors duration-200">
+              <input type="checkbox" class="symptom-check hidden" onchange="calcSimulator()">
+              <span class="sim-box w-5 h-5 rounded border-2 border-gray-300 flex items-center justify-center shrink-0 transition-all duration-200">
+                <svg class="sim-check w-3 h-3 text-white hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              </span>
+              <span class="text-sm font-bold text-gray-700">首の痛み</span>
+            </label>
+            <label class="sim-label flex items-center gap-2 rounded-xl p-3 cursor-pointer border-2 border-green-light hover:border-green transition-colors duration-200">
+              <input type="checkbox" class="symptom-check hidden" onchange="calcSimulator()">
+              <span class="sim-box w-5 h-5 rounded border-2 border-gray-300 flex items-center justify-center shrink-0 transition-all duration-200">
+                <svg class="sim-check w-3 h-3 text-white hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              </span>
+              <span class="text-sm font-bold text-gray-700">腰痛</span>
+            </label>
+            <label class="sim-label flex items-center gap-2 rounded-xl p-3 cursor-pointer border-2 border-green-light hover:border-green transition-colors duration-200">
+              <input type="checkbox" class="symptom-check hidden" onchange="calcSimulator()">
+              <span class="sim-box w-5 h-5 rounded border-2 border-gray-300 flex items-center justify-center shrink-0 transition-all duration-200">
+                <svg class="sim-check w-3 h-3 text-white hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              </span>
+              <span class="text-sm font-bold text-gray-700">肩こり</span>
+            </label>
+            <label class="sim-label flex items-center gap-2 rounded-xl p-3 cursor-pointer border-2 border-green-light hover:border-green transition-colors duration-200">
+              <input type="checkbox" class="symptom-check hidden" onchange="calcSimulator()">
+              <span class="sim-box w-5 h-5 rounded border-2 border-gray-300 flex items-center justify-center shrink-0 transition-all duration-200">
+                <svg class="sim-check w-3 h-3 text-white hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              </span>
+              <span class="text-sm font-bold text-gray-700">頭痛</span>
+            </label>
+            <label class="sim-label flex items-center gap-2 rounded-xl p-3 cursor-pointer border-2 border-green-light hover:border-green transition-colors duration-200">
+              <input type="checkbox" class="symptom-check hidden" onchange="calcSimulator()">
+              <span class="sim-box w-5 h-5 rounded border-2 border-gray-300 flex items-center justify-center shrink-0 transition-all duration-200">
+                <svg class="sim-check w-3 h-3 text-white hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              </span>
+              <span class="text-sm font-bold text-gray-700">しびれ</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- STEP 2: 保険 -->
+        <div>
+          <p class="font-bold text-gray-800 mb-4 flex items-center gap-2">
+            <span class="bg-green text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0">2</span>
+            保険の種類を選んでください
+          </p>
+          <div class="grid grid-cols-3 gap-3">
+            <label class="sim-radio-label flex flex-col items-center gap-1 rounded-xl p-4 cursor-pointer border-2 border-green-light hover:border-green transition-colors duration-200 text-center">
+              <input type="radio" name="insurance" value="jibaiseki" class="hidden" onchange="calcSimulator()" checked>
+              <span class="text-2xl">🚗</span>
+              <span class="text-sm font-bold text-gray-700">自賠責保険</span>
+              <span class="text-xs text-green font-bold">自己負担0円</span>
+            </label>
+            <label class="sim-radio-label flex flex-col items-center gap-1 rounded-xl p-4 cursor-pointer border-2 border-green-light hover:border-green transition-colors duration-200 text-center">
+              <input type="radio" name="insurance" value="kenko" class="hidden" onchange="calcSimulator()">
+              <span class="text-2xl">🏥</span>
+              <span class="text-sm font-bold text-gray-700">健康保険</span>
+              <span class="text-xs text-gray-500">3割負担</span>
+            </label>
+            <label class="sim-radio-label flex flex-col items-center gap-1 rounded-xl p-4 cursor-pointer border-2 border-green-light hover:border-green transition-colors duration-200 text-center">
+              <input type="radio" name="insurance" value="jihi" class="hidden" onchange="calcSimulator()">
+              <span class="text-2xl">💴</span>
+              <span class="text-sm font-bold text-gray-700">自費</span>
+              <span class="text-xs text-gray-500">全額自己負担</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- STEP 3: 通院頻度 -->
+        <div>
+          <p class="font-bold text-gray-800 mb-4 flex items-center gap-2">
+            <span class="bg-green text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0">3</span>
+            希望する通院頻度を選んでください
+          </p>
+          <div class="grid grid-cols-3 gap-3">
+            <label class="sim-radio-label flex flex-col items-center gap-1 rounded-xl p-4 cursor-pointer border-2 border-green-light hover:border-green transition-colors duration-200 text-center">
+              <input type="radio" name="frequency" value="4" class="hidden" onchange="calcSimulator()" checked>
+              <span class="text-2xl">📅</span>
+              <span class="text-sm font-bold text-gray-700">週1回</span>
+              <span class="text-xs text-gray-500">月4回</span>
+            </label>
+            <label class="sim-radio-label flex flex-col items-center gap-1 rounded-xl p-4 cursor-pointer border-2 border-green-light hover:border-green transition-colors duration-200 text-center">
+              <input type="radio" name="frequency" value="8" class="hidden" onchange="calcSimulator()">
+              <span class="text-2xl">📆</span>
+              <span class="text-sm font-bold text-gray-700">週2回</span>
+              <span class="text-xs text-gray-500">月8回</span>
+            </label>
+            <label class="sim-radio-label flex flex-col items-center gap-1 rounded-xl p-4 cursor-pointer border-2 border-green-light hover:border-green transition-colors duration-200 text-center">
+              <input type="radio" name="frequency" value="12" class="hidden" onchange="calcSimulator()">
+              <span class="text-2xl">🗓</span>
+              <span class="text-sm font-bold text-gray-700">週3回</span>
+              <span class="text-xs text-gray-500">月12回</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 仕切り線 -->
+      <div class="border-t-2 border-dashed border-green-light"></div>
+
+      <!-- 結果エリア -->
+      <div class="p-6 md:p-8 bg-green-light" id="sim-result">
+
+        <!-- 自賠責保険強調バナー -->
+        <div id="jibaiseki-banner" class="bg-green text-white rounded-xl p-4 mb-6 flex items-center gap-3">
+          <span class="text-2xl shrink-0">🎉</span>
+          <p class="text-sm font-bold leading-snug">
+            自賠責保険が適用されます！<br />
+            <span class="text-yellow-300">施術費・初診料・書類手数料 すべて自己負担 <span class="text-xl">0円</span></span>
+          </p>
+        </div>
+
+        <!-- 料金結果カード -->
+        <div class="grid md:grid-cols-3 gap-4 mb-6">
+          <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+            <p class="text-gray-500 text-xs mb-2">1回あたりの施術料金</p>
+            <p class="text-green text-2xl font-bold" id="result-per-session">¥3,300</p>
+            <p class="text-gray-400 text-xs mt-1">（目安）</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+            <p class="text-gray-500 text-xs mb-2">月額の目安</p>
+            <p class="text-green text-2xl font-bold" id="result-monthly">¥13,200</p>
+            <p class="text-gray-400 text-xs mt-1" id="result-monthly-note">週1回 × 4回</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 text-center shadow-sm border-2 border-green">
+            <p class="text-gray-500 text-xs mb-2">月額の自己負担額</p>
+            <p class="text-2xl font-bold" id="result-jiko-futan">¥0</p>
+            <p class="text-gray-400 text-xs mt-1" id="result-insurance-note">自賠責保険適用</p>
+          </div>
+        </div>
+
+        <p class="text-gray-400 text-xs text-center mb-6">
+          ※上記はあくまで目安です。症状・施術内容により異なります。正確な料金は初診時にご説明いたします。
+        </p>
+
+        <!-- CTAボタン -->
+        <a href="tel:06-0000-0000" class="btn-red w-full font-bold text-lg py-4 rounded-xl tracking-wider flex items-center justify-center gap-2 shadow-md">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          無料相談はこちら
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* シミュレーター：選択済みラベル */
+  .sim-label.selected {
+    border-color: #2d8a6e;
+    background-color: #e8f5f1;
+  }
+  .sim-label.selected .sim-box {
+    background-color: #2d8a6e;
+    border-color: #2d8a6e;
+  }
+  .sim-label.selected .sim-check { display: block; }
+
+  .sim-radio-label.selected {
+    border-color: #2d8a6e;
+    background-color: #e8f5f1;
+  }
+</style>
+
+<script>
+  // ===== 料金計算ロジック =====
+  // 症状数 → 1回あたりの施術料金（税込）
+  function getSessionFee(symptomCount) {
+    if (symptomCount === 0) return 3300;
+    if (symptomCount <= 2)  return 4950;  // 手技¥3,300 + 電気¥1,650
+    if (symptomCount <= 4)  return 6050;  // 全身¥4,400 + 電気¥1,650
+    return 7150;                          // 鍼灸¥5,500 + 電気¥1,650
+  }
+
+  function calcSimulator() {
+    // ① 症状カウント & チェックボックスのスタイル更新
+    const symptomChecks = document.querySelectorAll('.symptom-check');
+    let symptomCount = 0;
+    symptomChecks.forEach(cb => {
+      const label = cb.closest('.sim-label');
+      if (cb.checked) {
+        symptomCount++;
+        label.classList.add('selected');
+      } else {
+        label.classList.remove('selected');
+      }
+    });
+
+    // ② ラジオボタン（保険・頻度）のスタイル更新
+    document.querySelectorAll('.sim-radio-label').forEach(label => {
+      const radio = label.querySelector('input[type="radio"]');
+      label.classList.toggle('selected', radio.checked);
+    });
+
+    // ③ 保険の種類・頻度を取得
+    const insurance  = document.querySelector('input[name="insurance"]:checked').value;
+    const frequency  = parseInt(document.querySelector('input[name="frequency"]:checked').value);
+
+    // ④ 料金計算
+    const sessionFee = getSessionFee(symptomCount);
+    const monthly    = sessionFee * frequency;
+
+    let jikofutan, insuranceNote;
+    if (insurance === 'jibaiseki') {
+      jikofutan     = 0;
+      insuranceNote = '自賠責保険適用';
+    } else if (insurance === 'kenko') {
+      jikofutan     = Math.floor(monthly * 0.3);
+      insuranceNote = '健康保険（3割負担）';
+    } else {
+      jikofutan     = monthly;
+      insuranceNote = '自費（全額自己負担）';
+    }
+
+    // ⑤ 結果を画面に表示
+    document.getElementById('result-per-session').textContent = '¥' + sessionFee.toLocaleString();
+    document.getElementById('result-monthly').textContent     = '¥' + monthly.toLocaleString();
+    document.getElementById('result-monthly-note').textContent =
+      '週' + (frequency / 4) + '回 × ' + frequency + '回';
+    document.getElementById('result-jiko-futan').textContent  =
+      jikofutan === 0 ? '¥0' : '¥' + jikofutan.toLocaleString();
+    document.getElementById('result-insurance-note').textContent = insuranceNote;
+
+    // ⑥ 自己負担額の文字色
+    const jutanEl = document.getElementById('result-jiko-futan');
+    jutanEl.className = jikofutan === 0
+      ? 'text-2xl font-bold text-green'
+      : 'text-2xl font-bold text-gray-800';
+
+    // ⑦ 自賠責バナーの表示制御
+    document.getElementById('jibaiseki-banner').style.display =
+      insurance === 'jibaiseki' ? 'flex' : 'none';
+  }
+
+  // 初期計算（ページ読み込み時）
+  calcSimulator();
+</script>
+
+<!-- ===== 7. 患者様の声 ===== -->
 <section id="voice" class="py-20 px-4 bg-green-light">
   <div class="max-w-5xl mx-auto">
     <div class="text-center mb-14">
@@ -859,13 +1120,15 @@
         電話で無料相談
       </a>
       <a
-        href="#"
+        href="https://kgzwyrko0yzqmmdnrsok.stores.jp/reserve/efe78c778d587b5da4d4"
+        target="_blank"
+        rel="noopener noreferrer"
         class="bg-white text-green font-bold text-xl px-10 py-5 rounded-full tracking-wider inline-flex items-center justify-center gap-2 shadow-lg hover:bg-green-light transition-colors"
       >
         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
         </svg>
-        Web 予約はこちら
+        オンラインで予約する
       </a>
     </div>
 
