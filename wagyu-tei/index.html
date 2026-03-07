@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="炭火焼肉 和牛亭｜福岡・天神。A5ランク黒毛和牛を産地直送。個室完備で接待・記念日に最適な高級焼肉店。" />
+  <meta property="og:title" content="炭火焼肉 和牛亭｜福岡・天神の高級焼肉" />
+  <meta property="og:description" content="A5ランク黒毛和牛を産地直送。個室完備で接待・記念日に最適な高級焼肉店。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=80" />
+  <title>炭火焼肉 和牛亭｜福岡・天神の高級焼肉</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#1a1a1a',
+            gold: '#c9a84c',
+            'gold-light': '#e8c96a',
+            'dark-2': '#2a2a2a',
+            'dark-3': '#333333',
+          },
+          fontFamily: {
+            sans: ['"游ゴシック"', '"Yu Gothic"', 'YuGothic', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #1a1a1a; color: #f0ede8; font-family: '游ゴシック', 'Yu Gothic', YuGothic, sans-serif; }
+
+    .gold-line {
+      background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+      height: 1px;
+    }
+    .hero-overlay {
+      background: linear-gradient(to bottom, rgba(26,26,26,0.45) 0%, rgba(26,26,26,0.65) 60%, rgba(26,26,26,1) 100%);
+    }
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(201,168,76,0.2);
+    }
+    .nav-link:hover { color: #c9a84c; }
+    .btn-gold {
+      background: linear-gradient(135deg, #c9a84c, #e8c96a);
+      transition: all 0.3s;
+    }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #e8c96a, #c9a84c);
+      box-shadow: 0 0 20px rgba(201,168,76,0.5);
+      transform: translateY(-2px);
+    }
+    .btn-outline-gold {
+      border: 2px solid #c9a84c;
+      color: #c9a84c;
+      transition: all 0.3s;
+    }
+    .btn-outline-gold:hover {
+      background: #c9a84c;
+      color: #1a1a1a;
+      transform: translateY(-2px);
+    }
+    .star { color: #c9a84c; }
+    .menu-img { overflow: hidden; }
+    .menu-img img { transition: transform 0.4s; }
+    .menu-img:hover img { transform: scale(1.07); }
+    .room-card:hover { border-color: #c9a84c; }
+  </style>
+</head>
+<body>
+
+<!-- ===== ナビゲーション ===== -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-dark bg-opacity-90 backdrop-blur-sm border-b border-yellow-900 border-opacity-30">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="text-gold font-bold text-lg tracking-widest">炭火焼肉 和牛亭</div>
+    <div class="hidden md:flex gap-6 text-sm text-gray-300">
+      <a href="#kodawari" class="nav-link transition-colors">こだわり</a>
+      <a href="#course" class="nav-link transition-colors">コース</a>
+      <a href="#menu" class="nav-link transition-colors">メニュー</a>
+      <a href="#room" class="nav-link transition-colors">個室</a>
+      <a href="#voice" class="nav-link transition-colors">お客様の声</a>
+      <a href="#access" class="nav-link transition-colors">アクセス</a>
+    </div>
+    <a href="tel:092-000-0000" class="btn-gold text-dark font-bold text-sm px-4 py-2 rounded hidden md:block">
+      ご予約はこちら
+    </a>
+  </div>
+</nav>
+
+<!-- ===== 1. ヒーロー ===== -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- 高品質な炭火焼肉の写真（Unsplash） -->
+  <img
+    src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1600&q=80"
+    alt="炭火焼肉"
+    class="absolute inset-0 w-full h-full object-cover"
+  />
+  <div class="hero-overlay absolute inset-0"></div>
+
+  <div class="relative z-10 text-center px-4 py-20 mt-16">
+    <div class="gold-line w-24 mx-auto mb-6"></div>
+    <p class="text-gold text-sm tracking-[0.3em] mb-4">CHARCOAL GRILLED WAGYU</p>
+
+    <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
+      至福の一皿を、<br />あなたに
+    </h1>
+    <div class="gold-line w-24 mx-auto my-6"></div>
+
+    <p class="text-gray-200 text-base md:text-lg mb-2 drop-shadow">
+      A5ランク黒毛和牛を産地直送
+    </p>
+    <p class="text-gray-300 text-sm md:text-base mb-10 drop-shadow">
+      福岡市中央区・天神駅徒歩5分｜完全個室完備
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="tel:092-000-0000" class="btn-gold text-dark font-bold text-lg px-8 py-4 rounded-sm tracking-widest inline-block">
+        お電話でご予約
+      </a>
+      <a href="#reserve" class="btn-outline-gold font-bold text-lg px-8 py-4 rounded-sm tracking-widest inline-block">
+        ネット予約
+      </a>
+    </div>
+
+    <p class="text-gray-400 text-xs mt-6">営業時間：17:00〜23:00（L.O. 22:00）｜定休日：月曜</p>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+    <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== 2. こだわり ===== -->
+<section id="kodawari" class="py-20 px-4 bg-dark">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="text-gold text-sm tracking-[0.3em] mb-2">OUR COMMITMENT</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">和牛亭の3つのこだわり</h2>
+      <div class="gold-line w-20 mx-auto mt-6"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-dark-2 border border-yellow-900 border-opacity-40 p-8 text-center hover:border-gold transition-colors duration-300">
+        <!-- 和牛の写真 -->
+        <img
+          src="https://images.unsplash.com/photo-1558030006-450675393462?w=400&q=80"
+          alt="A5黒毛和牛"
+          class="w-20 h-20 object-cover rounded-full mx-auto mb-4 border-2 border-gold"
+        />
+        <div class="text-gold text-xs tracking-widest mb-3">MEAT QUALITY</div>
+        <h3 class="text-xl font-bold text-white mb-4">A5ランク黒毛和牛<br />産地直送</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          宮崎・鹿児島の名産地より、熟練のバイヤーが厳選したA5ランク黒毛和牛を直送。余計な流通を省くことで、鮮度抜群の極上肉をご提供します。
+        </p>
+      </div>
+
+      <div class="bg-dark-2 border border-yellow-900 border-opacity-40 p-8 text-center hover:border-gold transition-colors duration-300">
+        <!-- 炭火の写真 -->
+        <img
+          src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&q=80"
+          alt="炭火焼き"
+          class="w-20 h-20 object-cover rounded-full mx-auto mb-4 border-2 border-gold"
+        />
+        <div class="text-gold text-xs tracking-widest mb-3">CHARCOAL GRILL</div>
+        <h3 class="text-xl font-bold text-white mb-4">備長炭の<br />炭火焼き</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          高品質な備長炭を使用した炭火焼きで、肉の旨みを閉じ込めます。遠赤外線効果で表面はパリッと、中はジューシーに仕上げる職人の技をご堪能ください。
+        </p>
+      </div>
+
+      <div class="bg-dark-2 border border-yellow-900 border-opacity-40 p-8 text-center hover:border-gold transition-colors duration-300">
+        <!-- レストランの写真 -->
+        <img
+          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80"
+          alt="上質な空間"
+          class="w-20 h-20 object-cover rounded-full mx-auto mb-4 border-2 border-gold"
+        />
+        <div class="text-gold text-xs tracking-widest mb-3">HOSPITALITY</div>
+        <h3 class="text-xl font-bold text-white mb-4">上質な空間と<br />おもてなし</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          完全個室で周囲を気にせずお過ごしいただけます。接待・記念日・大切な方との食事に。ソムリエ厳選のワインや日本酒も豊富にご用意しております。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line w-full opacity-30"></div>
+
+<!-- ===== 3. おすすめコース ===== -->
+<section id="course" class="py-20 px-4 bg-dark">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="text-gold text-sm tracking-[0.3em] mb-2">COURSE MENU</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">おすすめコース</h2>
+      <div class="gold-line w-20 mx-auto mt-6"></div>
+      <p class="text-gray-400 text-sm mt-4">※料金はお一人様（税込）。2名様〜ご利用いただけます。</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- 竹コース -->
+      <div class="course-card bg-dark-2 border border-yellow-900 border-opacity-40 transition-all duration-300 cursor-pointer">
+        <img
+          src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&q=80"
+          alt="竹コース"
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-6">
+          <div class="text-gold text-xs tracking-widest mb-2">STANDARD</div>
+          <h3 class="text-xl font-bold text-white mb-1">竹コース</h3>
+          <p class="text-gray-400 text-sm mb-4">黒毛和牛を気軽に堪能できる入門コース。厳選7品構成。</p>
+          <ul class="text-gray-400 text-xs space-y-1 mb-6">
+            <li>・前菜盛り合わせ</li>
+            <li>・A4黒毛和牛 4種</li>
+            <li>・冷麺 or ご飯</li>
+            <li>・デザート</li>
+          </ul>
+          <div class="text-gold text-3xl font-bold">¥8,800</div>
+        </div>
+      </div>
+
+      <!-- 梅コース（人気No.1） -->
+      <div class="course-card bg-dark-2 border-2 border-gold transition-all duration-300 cursor-pointer relative">
+        <div class="absolute top-3 right-3 bg-gold text-dark text-xs font-bold px-3 py-1 rounded-full z-10">
+          人気No.1
+        </div>
+        <img
+          src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&q=80"
+          alt="梅コース"
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-6">
+          <div class="text-gold text-xs tracking-widest mb-2">POPULAR</div>
+          <h3 class="text-xl font-bold text-white mb-1">梅コース</h3>
+          <p class="text-gray-400 text-sm mb-4">接待・記念日に最適。A5和牛を中心とした豪華10品コース。</p>
+          <ul class="text-gray-400 text-xs space-y-1 mb-6">
+            <li>・特選前菜・刺身</li>
+            <li>・A5黒毛和牛 6種</li>
+            <li>・サイドメニュー3品</li>
+            <li>・〆・デザート</li>
+          </ul>
+          <div class="text-gold text-3xl font-bold">¥13,200</div>
+        </div>
+      </div>
+
+      <!-- 松コース -->
+      <div class="course-card bg-dark-2 border border-yellow-900 border-opacity-40 transition-all duration-300 cursor-pointer">
+        <img
+          src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&q=80"
+          alt="松コース"
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-6">
+          <div class="text-gold text-xs tracking-widest mb-2">PREMIUM</div>
+          <h3 class="text-xl font-bold text-white mb-1">松コース</h3>
+          <p class="text-gray-400 text-sm mb-4">最高峰の体験を。希少部位を含む全12品のフルコース。</p>
+          <ul class="text-gray-400 text-xs space-y-1 mb-6">
+            <li>・前菜・フォアグラ</li>
+            <li>・A5希少部位 8種</li>
+            <li>・サイドメニュー全種</li>
+            <li>・特製〆・デザート</li>
+          </ul>
+          <div class="text-gold text-3xl font-bold">¥19,800</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="tel:092-000-0000" class="btn-gold text-dark font-bold text-base px-10 py-4 rounded-sm tracking-widest inline-block">
+        コースのご予約・お問合せ
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. メニューハイライト ===== -->
+<section id="menu" class="py-20 px-4 bg-dark-2">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="text-gold text-sm tracking-[0.3em] mb-2">MENU HIGHLIGHTS</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">メニューハイライト</h2>
+      <div class="gold-line w-20 mx-auto mt-6"></div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+      <div class="menu-img cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=400&h=300&fit=crop&q=80" alt="特上カルビ" class="w-full h-40 md:h-52 object-cover" />
+        <div class="bg-dark-3 px-3 py-2">
+          <p class="text-white text-sm font-bold">特上カルビ</p>
+          <p class="text-gold text-xs">¥3,300〜</p>
+        </div>
+      </div>
+
+      <div class="menu-img cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop&q=80" alt="A5ロース" class="w-full h-40 md:h-52 object-cover" />
+        <div class="bg-dark-3 px-3 py-2">
+          <p class="text-white text-sm font-bold">A5ロース</p>
+          <p class="text-gold text-xs">¥4,400〜</p>
+        </div>
+      </div>
+
+      <div class="menu-img cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop&q=80" alt="ザブトン（希少部位）" class="w-full h-40 md:h-52 object-cover" />
+        <div class="bg-dark-3 px-3 py-2">
+          <p class="text-white text-sm font-bold">ザブトン（希少部位）</p>
+          <p class="text-gold text-xs">¥5,500〜</p>
+        </div>
+      </div>
+
+      <div class="menu-img cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop&q=80" alt="特上タン塩" class="w-full h-40 md:h-52 object-cover" />
+        <div class="bg-dark-3 px-3 py-2">
+          <p class="text-white text-sm font-bold">特上タン塩</p>
+          <p class="text-gold text-xs">¥2,200〜</p>
+        </div>
+      </div>
+
+      <div class="menu-img cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop&q=80" alt="シャトーブリアン" class="w-full h-40 md:h-52 object-cover" />
+        <div class="bg-dark-3 px-3 py-2">
+          <p class="text-white text-sm font-bold">シャトーブリアン</p>
+          <p class="text-gold text-xs">¥8,800〜</p>
+        </div>
+      </div>
+
+      <div class="menu-img cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop&q=80" alt="〆・デザート" class="w-full h-40 md:h-52 object-cover" />
+        <div class="bg-dark-3 px-3 py-2">
+          <p class="text-white text-sm font-bold">〆の冷麺・デザート</p>
+          <p class="text-gold text-xs">¥880〜</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. 個室紹介 ===== -->
+<section id="room" class="py-20 px-4 bg-dark">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="text-gold text-sm tracking-[0.3em] mb-2">PRIVATE ROOMS</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">完全個室のご案内</h2>
+      <div class="gold-line w-20 mx-auto mt-6"></div>
+      <p class="text-gray-400 text-sm mt-4">接待・記念日・家族のお祝いに。すべて完全個室でご利用いただけます。</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="room-card bg-dark-2 border border-yellow-900 border-opacity-40 overflow-hidden transition-colors duration-300">
+        <img
+          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=250&fit=crop&q=80"
+          alt="2名用個室"
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="bg-gold text-dark text-xs font-bold px-2 py-1 rounded">2名用</span>
+            <h3 class="text-lg font-bold text-white">カップル・接待に</h3>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            お二人だけの特別な時間を演出する、落ち着いた個室。記念日のサプライズ演出もご相談ください。
+          </p>
+        </div>
+      </div>
+
+      <div class="room-card bg-dark-2 border border-yellow-900 border-opacity-40 overflow-hidden transition-colors duration-300">
+        <img
+          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=250&fit=crop&q=80"
+          alt="4名用個室"
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="bg-gold text-dark text-xs font-bold px-2 py-1 rounded">4名用</span>
+            <h3 class="text-lg font-bold text-white">家族・小グループに</h3>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            ご家族のお祝いや、少人数の接待に最適。テーブルを囲みながら、ゆっくりとお過ごしいただけます。
+          </p>
+        </div>
+      </div>
+
+      <div class="room-card bg-dark-2 border border-yellow-900 border-opacity-40 overflow-hidden transition-colors duration-300">
+        <img
+          src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=250&fit=crop&q=80"
+          alt="8名用個室"
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="bg-gold text-dark text-xs font-bold px-2 py-1 rounded">8名用</span>
+            <h3 class="text-lg font-bold text-white">大人数・会食に</h3>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            大切なご会食や会社の接待に。プロジェクターのご利用も可能です。詳細はお問合せください。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. お客様の声 ===== -->
+<section id="voice" class="py-20 px-4 bg-dark-2">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="text-gold text-sm tracking-[0.3em] mb-2">CUSTOMER REVIEWS</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">お客様の声</h2>
+      <div class="gold-line w-20 mx-auto mt-6"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-dark border border-yellow-900 border-opacity-30 p-6">
+        <div class="flex gap-1 mb-3">
+          <span class="star text-xl">★★★★★</span>
+        </div>
+        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+          「接待で利用しました。個室で周りを気にせずゆっくり話せ、お肉のクオリティに先方も大変喜んでいただきました。シャトーブリアンが口の中でとろけて、今まで食べた焼肉で一番でした。」
+        </p>
+        <div class="border-t border-yellow-900 border-opacity-30 pt-4">
+          <p class="text-gold text-sm font-bold">M.K. 様</p>
+          <p class="text-gray-500 text-xs">40代・会社役員</p>
+        </div>
+      </div>
+
+      <div class="bg-dark border border-yellow-900 border-opacity-30 p-6">
+        <div class="flex gap-1 mb-3">
+          <span class="star text-xl">★★★★★</span>
+        </div>
+        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+          「結婚記念日に妻と二人で訪問。スタッフの方がサプライズでメッセージプレートを用意してくれていて感動しました。お肉はもちろん最高で、雰囲気も最高。また絶対に来ます！」
+        </p>
+        <div class="border-t border-yellow-900 border-opacity-30 pt-4">
+          <p class="text-gold text-sm font-bold">T.Y. 様</p>
+          <p class="text-gray-500 text-xs">30代・会社員</p>
+        </div>
+      </div>
+
+      <div class="bg-dark border border-yellow-900 border-opacity-30 p-6">
+        <div class="flex gap-1 mb-3">
+          <span class="star text-xl">★★★★★</span>
+        </div>
+        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+          「福岡に来るたびに必ず訪れる大好きなお店。産地直送という言葉通り、鮮度と肉質が段違いです。梅コースがコスパ最強でおすすめ。ソムリエさんおすすめのワインとの相性も抜群でした。」
+        </p>
+        <div class="border-t border-yellow-900 border-opacity-30 pt-4">
+          <p class="text-gold text-sm font-bold">S.N. 様</p>
+          <p class="text-gray-500 text-xs">50代・会社経営者</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. アクセス・営業時間 ===== -->
+<section id="access" class="py-20 px-4 bg-dark">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="text-gold text-sm tracking-[0.3em] mb-2">ACCESS</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">アクセス・営業時間</h2>
+      <div class="gold-line w-20 mx-auto mt-6"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <div class="bg-dark-2 border border-yellow-900 border-opacity-30 overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&h=400&fit=crop&q=80"
+          alt="地図イメージ"
+          class="w-full h-64 object-cover"
+        />
+        <div class="p-4 text-center">
+          <p class="text-gray-400 text-xs">※実際の地図はGoogle Mapsを埋め込みください</p>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <div class="border-b border-yellow-900 border-opacity-30 pb-4">
+          <p class="text-gold text-xs tracking-widest mb-1">RESTAURANT NAME</p>
+          <p class="text-white text-lg font-bold">炭火焼肉 和牛亭</p>
+        </div>
+        <div class="border-b border-yellow-900 border-opacity-30 pb-4">
+          <p class="text-gold text-xs tracking-widest mb-1">ADDRESS</p>
+          <p class="text-gray-300 text-sm">〒810-0001<br />福岡県福岡市中央区天神2丁目○○</p>
+        </div>
+        <div class="border-b border-yellow-900 border-opacity-30 pb-4">
+          <p class="text-gold text-xs tracking-widest mb-1">ACCESS</p>
+          <p class="text-gray-300 text-sm">
+            天神駅（福岡市地下鉄空港線）徒歩5分<br />
+            西鉄福岡（天神）駅 徒歩7分
+          </p>
+        </div>
+        <div class="border-b border-yellow-900 border-opacity-30 pb-4">
+          <p class="text-gold text-xs tracking-widest mb-1">HOURS</p>
+          <p class="text-gray-300 text-sm">ディナー：17:00〜23:00（L.O. 22:00）</p>
+        </div>
+        <div class="border-b border-yellow-900 border-opacity-30 pb-4">
+          <p class="text-gold text-xs tracking-widest mb-1">CLOSED</p>
+          <p class="text-gray-300 text-sm">毎週月曜日（祝日の場合は翌日）</p>
+        </div>
+        <div class="border-b border-yellow-900 border-opacity-30 pb-4">
+          <p class="text-gold text-xs tracking-widest mb-1">PARKING</p>
+          <p class="text-gray-300 text-sm">
+            専用駐車場なし（近隣コインパーキングご利用ください）<br />
+            <span class="text-gold text-xs">※2,000円以上ご利用で1時間無料券進呈</span>
+          </p>
+        </div>
+        <div>
+          <p class="text-gold text-xs tracking-widest mb-1">TEL</p>
+          <a href="tel:092-000-0000" class="text-white text-xl font-bold hover:text-gold transition-colors">
+            092-000-0000
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. 予約CTA ===== -->
+<section id="reserve" class="py-20 px-4 bg-dark-2">
+  <div class="max-w-3xl mx-auto text-center">
+    <div class="gold-line w-24 mx-auto mb-8"></div>
+    <p class="text-gold text-sm tracking-[0.3em] mb-4">RESERVATION</p>
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+      特別な夜を、<br class="md:hidden"/>ご予約ください
+    </h2>
+    <p class="text-gray-400 text-sm mb-10">
+      お席に限りがございます。<br />
+      ご予約はお電話またはネット予約フォームよりお願いいたします。
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+      <a
+        href="tel:092-000-0000"
+        class="btn-gold text-dark font-bold text-lg px-8 py-5 rounded-sm tracking-widest inline-flex items-center justify-center gap-2"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+        </svg>
+        電話で予約する
+      </a>
+      <a
+        href="#"
+        class="btn-outline-gold font-bold text-lg px-8 py-5 rounded-sm tracking-widest inline-flex items-center justify-center gap-2"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+        </svg>
+        ネット予約はこちら
+      </a>
+    </div>
+
+    <p class="text-gray-500 text-xs">
+      お電話受付時間：17:00〜22:00（月曜定休）<br />
+      ご予約は3日前までにお願いいたします。当日のご予約はお電話にて承ります。
+    </p>
+    <div class="gold-line w-24 mx-auto mt-8"></div>
+  </div>
+</section>
+
+<!-- ===== フッター ===== -->
+<footer class="bg-dark border-t border-yellow-900 border-opacity-30 py-10 px-4 text-center">
+  <p class="text-gold font-bold text-lg tracking-widest mb-2">炭火焼肉 和牛亭</p>
+  <p class="text-gray-500 text-xs mb-1">〒810-0001 福岡県福岡市中央区天神2丁目○○</p>
+  <p class="text-gray-500 text-xs mb-4">TEL: 092-000-0000 ／ 営業時間: 17:00〜23:00 ／ 定休日: 月曜</p>
+  <div class="gold-line w-20 mx-auto mb-4 opacity-50"></div>
+  <p class="text-gray-600 text-xs">&copy; 2025 炭火焼肉 和牛亭 All Rights Reserved.</p>
+  <p class="text-gray-700 text-xs mt-1">Photos by <a href="https://unsplash.com" class="underline hover:text-gray-500">Unsplash</a></p>
+</footer>
+
+</body>
+</html>
