@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="個別指導塾NEXT（ネクスト）｜東京都渋谷区。お子さま一人ひとりに合わせたカリキュラムで、定期テスト・高校受験・大学受験を徹底サポート。無料体験授業受付中！" />
+  <meta property="og:title" content="個別指導塾NEXT｜あなたの「できる」を一緒に見つけよう" />
+  <meta property="og:description" content="完全個別指導で定期テスト・受験対策。東京都渋谷区。無料体験授業受付中！" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://placehold.co/1200x630/1e3a5f/ffffff?text=個別指導塾NEXT" />
+  <title>個別指導塾NEXT｜あなたの「できる」を一緒に見つけよう</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              50:  '#eef2f7',
+              100: '#d6e0ee',
+              500: '#3a6fa8',
+              700: '#1e3a5f',
+              900: '#0f1e33',
+            },
+            accent: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          },
+          fontFamily: {
+            sans: ['"Hiragino Kaku Gothic ProN"', '"Noto Sans JP"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* ヒーロー背景グラデーション */
+    .hero-bg {
+      background: linear-gradient(135deg, #0f1e33 0%, #1e3a5f 50%, #3a6fa8 100%);
+    }
+
+    /* セクション区切り波形 */
+    .wave-bottom {
+      clip-path: ellipse(100% 60% at 50% 40%);
+    }
+
+    /* アニメーション */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeInUp 0.7s ease forwards; }
+
+    /* カード hover */
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(30,58,95,0.15);
+    }
+
+    /* 電話ボタン点滅 */
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(245,158,11,0.6); }
+      70%  { box-shadow: 0 0 0 14px rgba(245,158,11,0); }
+      100% { box-shadow: 0 0 0 0 rgba(245,158,11,0); }
+    }
+    .btn-pulse { animation: pulse-ring 2s infinite; }
+
+    /* ナンバリング大文字 */
+    .big-number {
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 1;
+      color: #1e3a5f;
+      opacity: 0.08;
+      position: absolute;
+      top: -10px;
+      left: -10px;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+
+  <!-- ========== ヘッダー（固定） ========== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-navy-700 shadow-lg">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="text-white">
+        <span class="text-xs font-bold text-accent-400 tracking-widest">個別指導塾</span>
+        <span class="block text-2xl font-black tracking-wider leading-none">NEXT</span>
+      </div>
+      <a href="tel:0120-0000-0000"
+         class="flex items-center gap-2 bg-accent-500 hover:bg-accent-600 text-white font-bold rounded-full px-4 py-2 text-sm transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/>
+        </svg>
+        <span class="hidden sm:inline">無料体験のお申込み</span>
+        <span class="sm:hidden">無料体験</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero-bg pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
+    <!-- 装飾サークル -->
+    <div class="absolute top-10 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/3"></div>
+    <div class="absolute bottom-0 left-0 w-48 h-48 bg-accent-500 opacity-10 rounded-full translate-y-1/2 -translate-x-1/4"></div>
+
+    <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+      <!-- テキスト -->
+      <div class="flex-1 text-center md:text-left fade-in">
+        <span class="inline-block bg-accent-500 text-white text-xs font-bold px-4 py-1 rounded-full mb-4 tracking-widest">
+          📚 無料体験授業 受付中
+        </span>
+        <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4">
+          あなたの<br />
+          <span class="text-accent-400">「できる」</span>を<br />
+          一緒に見つけよう。
+        </h1>
+        <p class="text-blue-200 text-base md:text-lg mb-8 leading-relaxed">
+          渋谷駅徒歩5分 ｜ 小学生〜高校生対応<br />
+          完全個別指導で、定期テスト・受験を徹底サポート
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <a href="tel:0120-0000-0000"
+             class="btn-pulse bg-accent-500 hover:bg-accent-600 text-white font-black text-lg px-8 py-4 rounded-full transition flex items-center justify-center gap-2 shadow-xl">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/>
+            </svg>
+            0120-0000-0000
+          </a>
+          <div class="text-blue-200 text-sm text-center self-center">
+            受付時間：平日14:00〜21:00<br />土曜10:00〜19:00
+          </div>
+        </div>
+      </div>
+      <!-- 画像 -->
+      <div class="flex-1 w-full max-w-sm md:max-w-none">
+        <img src="https://placehold.co/600x420/3a6fa8/ffffff?text=個別指導塾+NEXT"
+             alt="個別指導の様子"
+             class="w-full rounded-2xl shadow-2xl border-4 border-white border-opacity-20" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== お悩みセクション ========== -->
+  <section class="bg-navy-50 py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-accent-500 font-bold text-sm tracking-widest">PROBLEM</span>
+        <h2 class="text-2xl md:text-4xl font-black text-navy-700 mt-2">
+          こんなお悩み、<br class="sm:hidden"/>ありませんか？
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <!-- 悩み1 -->
+        <div class="bg-white rounded-2xl p-6 shadow-md card-hover border-t-4 border-navy-500">
+          <div class="w-10 h-10 bg-navy-700 text-white rounded-full flex items-center justify-center font-black text-sm mx-auto mb-4">01</div>
+          <h3 class="font-bold text-navy-700 text-lg text-center mb-2">成績が上がらない…</h3>
+          <p class="text-gray-600 text-sm text-center leading-relaxed">
+            頑張って勉強しているのに、テストの点数がなかなか伸びない
+          </p>
+        </div>
+        <!-- 悩み2 -->
+        <div class="bg-white rounded-2xl p-6 shadow-md card-hover border-t-4 border-navy-500">
+          <div class="w-10 h-10 bg-navy-700 text-white rounded-full flex items-center justify-center font-black text-sm mx-auto mb-4">02</div>
+          <h3 class="font-bold text-navy-700 text-lg text-center mb-2">何をすれば良いかわからない</h3>
+          <p class="text-gray-600 text-sm text-center leading-relaxed">
+            勉強の仕方がわからず、やる気はあっても空回りしてしまう
+          </p>
+        </div>
+        <!-- 悩み3 -->
+        <div class="bg-white rounded-2xl p-6 shadow-md card-hover border-t-4 border-navy-500">
+          <div class="w-10 h-10 bg-navy-700 text-white rounded-full flex items-center justify-center font-black text-sm mx-auto mb-4">03</div>
+          <h3 class="font-bold text-navy-700 text-lg text-center mb-2">集団授業についていけない</h3>
+          <p class="text-gray-600 text-sm text-center leading-relaxed">
+            授業のスピードが速くて理解できないまま先に進んでしまう
+          </p>
+        </div>
+        <!-- 悩み4 -->
+        <div class="bg-white rounded-2xl p-6 shadow-md card-hover border-t-4 border-navy-500">
+          <div class="w-10 h-10 bg-navy-700 text-white rounded-full flex items-center justify-center font-black text-sm mx-auto mb-4">04</div>
+          <h3 class="font-bold text-navy-700 text-lg text-center mb-2">受験に間に合うか不安</h3>
+          <p class="text-gray-600 text-sm text-center leading-relaxed">
+            志望校合格に向けて、何から始めればいいかわからない
+          </p>
+        </div>
+        <!-- 悩み5 -->
+        <div class="bg-white rounded-2xl p-6 shadow-md card-hover border-t-4 border-navy-500">
+          <div class="w-10 h-10 bg-navy-700 text-white rounded-full flex items-center justify-center font-black text-sm mx-auto mb-4">05</div>
+          <h3 class="font-bold text-navy-700 text-lg text-center mb-2">苦手科目が足を引っ張る</h3>
+          <p class="text-gray-600 text-sm text-center leading-relaxed">
+            特定の科目だけ極端に苦手で、全体の成績が伸び悩んでいる
+          </p>
+        </div>
+        <!-- 悩み6 -->
+        <div class="bg-white rounded-2xl p-6 shadow-md card-hover border-t-4 border-navy-500">
+          <div class="w-10 h-10 bg-navy-700 text-white rounded-full flex items-center justify-center font-black text-sm mx-auto mb-4">06</div>
+          <h3 class="font-bold text-navy-700 text-lg text-center mb-2">勉強へのやる気が出ない</h3>
+          <p class="text-gray-600 text-sm text-center leading-relaxed">
+            机に向かっても集中できず、自分を責めてしまう毎日
+          </p>
+        </div>
+      </div>
+
+      <!-- 解決の橋渡し -->
+      <div class="mt-12 text-center">
+        <div class="inline-block bg-navy-700 text-white rounded-2xl px-8 py-6 shadow-xl">
+          <p class="text-lg md:text-2xl font-black leading-relaxed">
+            そのお悩み、<br />
+            <span class="text-accent-400">個別指導塾NEXT</span>が<br />
+            全力で解決します！
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 選ばれる理由 ========== -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-14">
+        <span class="text-accent-500 font-bold text-sm tracking-widest">REASON</span>
+        <h2 class="text-2xl md:text-4xl font-black text-navy-700 mt-2">
+          NEXTが選ばれる<br class="sm:hidden"/>3つの理由
+        </h2>
+      </div>
+
+      <!-- 理由1 -->
+      <div class="flex flex-col md:flex-row items-center gap-10 mb-16">
+        <div class="w-full md:w-1/2">
+          <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=560&h=380"
+               alt="講師と生徒の1対1指導" class="rounded-2xl shadow-xl w-full" />
+        </div>
+        <div class="w-full md:w-1/2">
+          <div class="relative pl-4">
+            <span class="big-number">01</span>
+            <span class="text-accent-500 font-bold text-sm tracking-widest">REASON 01</span>
+            <h3 class="text-2xl md:text-3xl font-black text-navy-700 mt-2 mb-4">
+              完全1対1の個別指導で<br />つまずきを徹底解消
+            </h3>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              NEXTでは、講師1人がお子さま1人だけに向き合う「完全個別指導」を実施。
+              その日その子の理解度に合わせて授業を進めるので、わからないまま放置されることがありません。
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-2 text-sm text-gray-700">
+                <span class="text-accent-500 font-bold mt-0.5">✓</span> 授業中いつでも質問OK
+              </li>
+              <li class="flex items-start gap-2 text-sm text-gray-700">
+                <span class="text-accent-500 font-bold mt-0.5">✓</span> 理解できるまで何度でも繰り返し説明
+              </li>
+              <li class="flex items-start gap-2 text-sm text-gray-700">
+                <span class="text-accent-500 font-bold mt-0.5">✓</span> 授業ペースはお子さまに合わせて調整
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 理由2（逆レイアウト） -->
+      <div class="flex flex-col md:flex-row-reverse items-center gap-10 mb-16">
+        <div class="w-full md:w-1/2">
+          <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&w=560&h=380"
+               alt="学習計画・カリキュラム" class="rounded-2xl shadow-xl w-full" />
+        </div>
+        <div class="w-full md:w-1/2">
+          <div class="relative pl-4">
+            <span class="big-number">02</span>
+            <span class="text-accent-500 font-bold text-sm tracking-widest">REASON 02</span>
+            <h3 class="text-2xl md:text-3xl font-black text-navy-700 mt-2 mb-4">
+              一人ひとりに合った<br />オーダーメイドカリキュラム
+            </h3>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              入塾時に丁寧な学力診断テストを実施。苦手分野・得意分野を正確に把握した上で、
+              その子だけの学習計画を作成します。無駄なく・最短で成績アップを目指します。
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-2 text-sm text-gray-700">
+                <span class="text-accent-500 font-bold mt-0.5">✓</span> 入塾時に無料学力診断テスト実施
+              </li>
+              <li class="flex items-start gap-2 text-sm text-gray-700">
+                <span class="text-accent-500 font-bold mt-0.5">✓</span> 毎月カリキュラムを見直し・最適化
+              </li>
+              <li class="flex items-start gap-2 text-sm text-gray-700">
+                <span class="text-accent-500 font-bold mt-0.5">✓</span> 定期テスト・受験スケジュールに完全対応
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 理由3 -->
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <div class="w-full md:w-1/2">
+          <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=560&h=380"
+               alt="保護者との面談・相談" class="rounded-2xl shadow-xl w-full" />
+        </div>
+        <div class="w-full md:w-1/2">
+          <div class="relative pl-4">
+            <span class="big-number">03</span>
+            <span class="text-accent-500 font-bold text-sm tracking-widest">REASON 03</span>
+            <h3 class="text-2xl md:text-3xl font-black text-navy-700 mt-2 mb-4">
+              保護者の方への<br />丁寧な定期報告
+            </h3>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              授業の内容・進捗・お子さまの様子を毎回ご報告。
+              定期的な三者面談で今後の方針も一緒に確認します。
+              「うちの子、塾で何してるんだろう？」という不安をなくします。
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-2 text-sm text-gray-700">
+                <span class="text-accent-500 font-bold mt-0.5">✓</span> 毎回の授業後に授業報告書を発行
+              </li>
+              <li class="flex items-start gap-2 text-sm text-gray-700">
+                <span class="text-accent-500 font-bold mt-0.5">✓</span> 学期ごとに三者面談を実施
+              </li>
+              <li class="flex items-start gap-2 text-sm text-gray-700">
+                <span class="text-accent-500 font-bold mt-0.5">✓</span> いつでも電話・対面でのご相談OK
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 授業の流れ ========== -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-accent-500 font-bold text-sm tracking-widest">FLOW</span>
+        <h2 class="text-2xl md:text-4xl font-black text-navy-700 mt-2">入塾までの流れ</h2>
+      </div>
+      <div class="space-y-6">
+        <!-- STEP1 -->
+        <div class="flex gap-6 items-start">
+          <div class="flex-shrink-0 w-14 h-14 bg-navy-700 text-white rounded-full flex flex-col items-center justify-center shadow-lg">
+            <span class="text-xs font-bold">STEP</span>
+            <span class="text-xl font-black leading-none">1</span>
+          </div>
+          <div class="flex-1 bg-navy-50 rounded-2xl p-5 shadow-sm">
+            <h3 class="font-black text-navy-700 text-lg mb-1">📞 お電話でのご相談・ご予約</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              0120-0000-0000 へお電話ください。現在のお悩み・ご状況をお聞かせいただき、
+              無料体験授業の日程をご予約します。（お電話は5〜10分ほど）
+            </p>
+          </div>
+        </div>
+        <!-- 矢印 -->
+        <div class="text-center text-navy-300 text-2xl">▼</div>
+        <!-- STEP2 -->
+        <div class="flex gap-6 items-start">
+          <div class="flex-shrink-0 w-14 h-14 bg-navy-700 text-white rounded-full flex flex-col items-center justify-center shadow-lg">
+            <span class="text-xs font-bold">STEP</span>
+            <span class="text-xl font-black leading-none">2</span>
+          </div>
+          <div class="flex-1 bg-navy-50 rounded-2xl p-5 shadow-sm">
+            <h3 class="font-black text-navy-700 text-lg mb-1">📝 無料学力診断テスト</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              来塾後、まず学力診断テストを実施。苦手分野と得意分野を正確に把握し、
+              最適な学習プランを作成します。（所要時間：約30分）
+            </p>
+          </div>
+        </div>
+        <div class="text-center text-navy-300 text-2xl">▼</div>
+        <!-- STEP3 -->
+        <div class="flex gap-6 items-start">
+          <div class="flex-shrink-0 w-14 h-14 bg-navy-700 text-white rounded-full flex flex-col items-center justify-center shadow-lg">
+            <span class="text-xs font-bold">STEP</span>
+            <span class="text-xl font-black leading-none">3</span>
+          </div>
+          <div class="flex-1 bg-navy-50 rounded-2xl p-5 shadow-sm">
+            <h3 class="font-black text-navy-700 text-lg mb-1">🎓 無料体験授業（60分）</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              実際の1対1授業を無料で体験いただけます。担当講師との相性も確認しながら、
+              NEXTの授業スタイルをじっくりご体感ください。
+            </p>
+          </div>
+        </div>
+        <div class="text-center text-navy-300 text-2xl">▼</div>
+        <!-- STEP4 -->
+        <div class="flex gap-6 items-start">
+          <div class="flex-shrink-0 w-14 h-14 bg-accent-500 text-white rounded-full flex flex-col items-center justify-center shadow-lg">
+            <span class="text-xs font-bold">STEP</span>
+            <span class="text-xl font-black leading-none">4</span>
+          </div>
+          <div class="flex-1 bg-accent-400 bg-opacity-10 border border-accent-400 rounded-2xl p-5 shadow-sm">
+            <h3 class="font-black text-navy-700 text-lg mb-1">🚀 入塾・学習スタート！</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              体験後、ご納得いただけましたら入塾手続きへ。
+              オーダーメイドのカリキュラムですぐに学習をスタートできます！
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 生徒・保護者の声 ========== -->
+  <section class="bg-navy-50 py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-accent-500 font-bold text-sm tracking-widest">VOICE</span>
+        <h2 class="text-2xl md:text-4xl font-black text-navy-700 mt-2">
+          生徒・保護者の声
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- 声1 -->
+        <div class="bg-white rounded-2xl p-6 shadow-md card-hover">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://placehold.co/60x60/1e3a5f/ffffff?text=A"
+                 alt="生徒A" class="w-14 h-14 rounded-full" />
+            <div>
+              <p class="font-bold text-navy-700">中学3年生・Aさん</p>
+              <div class="text-accent-500 text-lg">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            「集団塾では置いてかれてばかりでしたが、NEXTに変えてから自分のペースで学べるようになりました。
+            数学が大の苦手だったのに、テストで初めて80点を超えたときは本当に嬉しかったです！」
+          </p>
+          <p class="text-accent-500 text-xs font-bold mt-3">▶ 数学 35点→82点に向上！</p>
+        </div>
+        <!-- 声2 -->
+        <div class="bg-white rounded-2xl p-6 shadow-md card-hover">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://placehold.co/60x60/3a6fa8/ffffff?text=B"
+                 alt="保護者B" class="w-14 h-14 rounded-full" />
+            <div>
+              <p class="font-bold text-navy-700">中学2年生の保護者・Bさん</p>
+              <div class="text-accent-500 text-lg">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            「毎回授業後に報告書をいただけるので、家での声かけに活かせています。
+            先生との相性も良く、子どもが自分から『塾に行きたい』と言うようになったのが一番の変化です。」
+          </p>
+          <p class="text-accent-500 text-xs font-bold mt-3">▶ 自主学習の習慣が身についた！</p>
+        </div>
+        <!-- 声3 -->
+        <div class="bg-white rounded-2xl p-6 shadow-md card-hover">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://placehold.co/60x60/1e3a5f/ffffff?text=C"
+                 alt="生徒C" class="w-14 h-14 rounded-full" />
+            <div>
+              <p class="font-bold text-navy-700">高校2年生・Cさん</p>
+              <div class="text-accent-500 text-lg">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            「大学受験を見据えて入塾しました。志望校に合わせた計画を一緒に立ててくれるので、
+            いつも安心して取り組めています。自習室も静かで集中できます！」
+          </p>
+          <p class="text-accent-500 text-xs font-bold mt-3">▶ 第一志望の大学に合格！</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 講師紹介 ========== -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-accent-500 font-bold text-sm tracking-widest">TEACHER</span>
+        <h2 class="text-2xl md:text-4xl font-black text-navy-700 mt-2">講師紹介</h2>
+        <p class="text-gray-500 mt-3 text-sm">経験豊富なプロ講師がお子さまを全力でサポートします</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- 講師1 -->
+        <div class="flex gap-5 items-start bg-navy-50 rounded-2xl p-6 shadow-sm card-hover">
+          <img src="https://placehold.co/100x100/1e3a5f/ffffff?text=T1"
+               alt="講師1" class="w-24 h-24 rounded-xl flex-shrink-0 object-cover" />
+          <div>
+            <span class="bg-navy-700 text-white text-xs px-2 py-0.5 rounded-full font-bold">塾長</span>
+            <h3 class="font-black text-navy-700 text-xl mt-1">田中 誠一</h3>
+            <p class="text-accent-500 text-sm font-bold mb-2">担当：数学・理科</p>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              東京大学工学部卒。大手予備校での指導歴10年以上。
+              「わかる喜び」を体感させる授業が得意。
+              高校受験・大学受験での合格実績多数。
+            </p>
+          </div>
+        </div>
+        <!-- 講師2 -->
+        <div class="flex gap-5 items-start bg-navy-50 rounded-2xl p-6 shadow-sm card-hover">
+          <img src="https://placehold.co/100x100/3a6fa8/ffffff?text=T2"
+               alt="講師2" class="w-24 h-24 rounded-xl flex-shrink-0 object-cover" />
+          <div>
+            <span class="bg-navy-500 text-white text-xs px-2 py-0.5 rounded-full font-bold">講師</span>
+            <h3 class="font-black text-navy-700 text-xl mt-1">鈴木 あかり</h3>
+            <p class="text-accent-500 text-sm font-bold mb-2">担当：英語・国語</p>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              早稲田大学文学部卒。英検1級・TOEIC950点保有。
+              英語を楽しく学べる指導スタイルで、苦手意識を持つ生徒も大歓迎。
+              丁寧でわかりやすい説明が保護者からも好評。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== よくある質問 ========== -->
+  <section class="bg-navy-50 py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-accent-500 font-bold text-sm tracking-widest">FAQ</span>
+        <h2 class="text-2xl md:text-4xl font-black text-navy-700 mt-2">よくある質問</h2>
+      </div>
+      <div class="space-y-4">
+        <details class="bg-white rounded-2xl shadow-sm overflow-hidden group">
+          <summary class="flex justify-between items-center px-6 py-4 font-bold text-navy-700 cursor-pointer list-none">
+            <span>Q. 体験授業は本当に無料ですか？</span>
+            <span class="text-accent-500 text-xl group-open:rotate-180 transition-transform">＋</span>
+          </summary>
+          <div class="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+            はい、完全無料です。体験授業・学力診断テストともに費用は一切かかりません。
+            入塾を強制することもありませんので、お気軽にご参加ください。
+          </div>
+        </details>
+        <details class="bg-white rounded-2xl shadow-sm overflow-hidden group">
+          <summary class="flex justify-between items-center px-6 py-4 font-bold text-navy-700 cursor-pointer list-none">
+            <span>Q. 小学生でも入塾できますか？</span>
+            <span class="text-accent-500 text-xl group-open:rotate-180 transition-transform">＋</span>
+          </summary>
+          <div class="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+            はい、小学4年生〜高校3年生まで対応しています。中学受験から大学受験まで、
+            幅広い年齢のお子さまをサポートしています。
+          </div>
+        </details>
+        <details class="bg-white rounded-2xl shadow-sm overflow-hidden group">
+          <summary class="flex justify-between items-center px-6 py-4 font-bold text-navy-700 cursor-pointer list-none">
+            <span>Q. 途中でコースを変更できますか？</span>
+            <span class="text-accent-500 text-xl group-open:rotate-180 transition-transform">＋</span>
+          </summary>
+          <div class="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+            もちろん可能です。受験期や定期テスト前など、状況に合わせて科目数や授業頻度を柔軟に変更できます。
+            まずはご相談ください。
+          </div>
+        </details>
+        <details class="bg-white rounded-2xl shadow-sm overflow-hidden group">
+          <summary class="flex justify-between items-center px-6 py-4 font-bold text-navy-700 cursor-pointer list-none">
+            <span>Q. 自習室はいつでも使えますか？</span>
+            <span class="text-accent-500 text-xl group-open:rotate-180 transition-transform">＋</span>
+          </summary>
+          <div class="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+            在塾生は、塾の開室時間中いつでも自習室を無料でご利用いただけます。
+            わからない問題があればスタッフに質問することもできます。
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 教室情報・アクセス ========== -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-accent-500 font-bold text-sm tracking-widest">ACCESS</span>
+        <h2 class="text-2xl md:text-4xl font-black text-navy-700 mt-2">教室情報・アクセス</h2>
+      </div>
+      <div class="flex flex-col md:flex-row gap-8 items-start">
+        <div class="w-full md:w-1/2">
+          <table class="w-full text-sm">
+            <tbody class="divide-y divide-gray-100">
+              <tr class="py-3">
+                <td class="py-3 pr-4 font-bold text-navy-700 w-28">塾名</td>
+                <td class="py-3 text-gray-700">個別指導塾 NEXT（ネクスト）</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-4 font-bold text-navy-700">住所</td>
+                <td class="py-3 text-gray-700">東京都渋谷区渋谷1-1-1<br />〇〇ビル3F</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-4 font-bold text-navy-700">アクセス</td>
+                <td class="py-3 text-gray-700">渋谷駅 東口より徒歩5分</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-4 font-bold text-navy-700">電話番号</td>
+                <td class="py-3 text-gray-700">
+                  <a href="tel:0120-0000-0000" class="text-navy-700 font-bold hover:text-accent-500">
+                    0120-0000-0000
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-4 font-bold text-navy-700">開室時間</td>
+                <td class="py-3 text-gray-700">
+                  平日：14:00〜21:00<br />
+                  土曜：10:00〜19:00
+                </td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-4 font-bold text-navy-700">定休日</td>
+                <td class="py-3 text-gray-700">日曜・祝日</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-4 font-bold text-navy-700">対象学年</td>
+                <td class="py-3 text-gray-700">小学4年生〜高校3年生</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- 地図エリア -->
+        <div class="w-full md:w-1/2">
+          <div class="bg-navy-50 rounded-2xl overflow-hidden shadow-md h-64 flex items-center justify-center">
+            <img src="https://placehold.co/560x256/d6e0ee/1e3a5f?text=Google+Map+エリア"
+                 alt="地図" class="w-full h-full object-cover" />
+          </div>
+          <p class="text-xs text-gray-400 mt-2 text-center">※実際の地図はGoogle Mapsを埋め込んでください</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 最終CTA ========== -->
+  <section class="bg-navy-700 py-16 md:py-24 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-1/4 w-64 h-64 bg-white rounded-full -translate-y-1/2"></div>
+      <div class="absolute bottom-0 right-1/4 w-48 h-48 bg-accent-500 rounded-full translate-y-1/2"></div>
+    </div>
+    <div class="max-w-2xl mx-auto px-4 text-center relative z-10">
+      <span class="inline-block bg-accent-500 text-white text-xs font-bold px-4 py-1 rounded-full mb-6 tracking-widest">
+        📞 無料体験授業のお申込み
+      </span>
+      <h2 class="text-2xl md:text-4xl font-black text-white leading-tight mb-4">
+        まずは気軽に<br />お電話ください！
+      </h2>
+      <p class="text-blue-200 mb-10 leading-relaxed">
+        ご質問・ご相談だけでも大歓迎です。<br />
+        お子さまの「できる」を、一緒に見つけましょう。
+      </p>
+      <a href="tel:0120-0000-0000"
+         class="btn-pulse inline-flex items-center justify-center gap-3 bg-accent-500 hover:bg-accent-600 text-white font-black text-2xl px-10 py-5 rounded-full transition shadow-2xl">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/>
+        </svg>
+        0120-0000-0000
+      </a>
+      <p class="text-blue-300 text-sm mt-4">
+        受付時間：平日14:00〜21:00 / 土曜10:00〜19:00
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== フッター ========== -->
+  <footer class="bg-navy-900 text-gray-400 py-8">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <p class="text-white font-black text-xl mb-1">個別指導塾 NEXT</p>
+      <p class="text-sm mb-4">東京都渋谷区渋谷1-1-1 〇〇ビル3F</p>
+      <p class="text-xs">© 2025 個別指導塾NEXT All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
