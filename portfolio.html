@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hisayoshi | Web制作フリーランス</title>
+  <meta name="description" content="集客できるLP＋Webシステム構築をまとめて作ります！予約システム・料金シミュレーター・フォーム構築まで対応。" />
+  <!-- OGP -->
+  <meta property="og:title" content="Hisayoshi | Web制作フリーランス" />
+  <meta property="og:description" content="集客できるLP＋Webシステム構築をまとめて作ります！" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://placehold.co/1200x630/111827/ffffff?text=Hisayoshi+Portfolio" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            accent: '#6ee7b7',     /* エメラルドグリーン */
+            accentDark: '#34d399',
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #0f172a; color: #e2e8f0; }
+
+    /* グラデーションアクセント */
+    .accent-text {
+      background: linear-gradient(90deg, #6ee7b7, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .accent-border { border-color: #6ee7b7; }
+    .accent-bg { background: linear-gradient(135deg, #6ee7b7, #38bdf8); }
+
+    /* カードホバー */
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(110, 231, 183, 0.12);
+    }
+
+    /* グロー効果 */
+    .glow {
+      box-shadow: 0 0 30px rgba(110, 231, 183, 0.2);
+    }
+
+    /* フェードイン */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up {
+      animation: fadeUp 0.7s ease forwards;
+    }
+    .delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .delay-2 { animation-delay: 0.25s; opacity: 0; }
+    .delay-3 { animation-delay: 0.4s; opacity: 0; }
+
+    /* <p>テキストを読みやすいサイズに（text-smを16pxに上書き） */
+    p.text-sm { font-size: 1rem !important; line-height: 1.85 !important; }
+
+    /* ステップライン */
+    .step-line::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 40px;
+      background: linear-gradient(to bottom, #6ee7b7, transparent);
+    }
+  </style>
+</head>
+
+<body class="dark font-sans antialiased">
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#hero" class="font-mono text-xl font-bold accent-text">hisayoshi.dev</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-slate-400">
+        <a href="#services" class="hover:text-accent transition-colors">できること</a>
+        <a href="#works" class="hover:text-accent transition-colors">制作実績</a>
+        <a href="#pricing" class="hover:text-accent transition-colors">料金</a>
+        <a href="#flow" class="hover:text-accent transition-colors">制作の流れ</a>
+        <a href="#contact" class="accent-bg text-slate-900 font-bold px-4 py-2 rounded-full text-xs hover:opacity-90 transition-opacity">
+          お問い合わせ
+        </a>
+      </nav>
+      <!-- モバイルメニューボタン -->
+      <button id="mobileMenuBtn" class="md:hidden text-slate-400 hover:text-accent transition-colors" aria-label="メニュー">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <!-- モバイルメニュー -->
+    <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-t border-slate-800 px-4 py-4 flex flex-col gap-4 text-sm text-slate-400">
+      <a href="#services" class="hover:text-accent transition-colors" onclick="closeMobileMenu()">できること</a>
+      <a href="#works" class="hover:text-accent transition-colors" onclick="closeMobileMenu()">制作実績</a>
+      <a href="#pricing" class="hover:text-accent transition-colors" onclick="closeMobileMenu()">料金</a>
+      <a href="#flow" class="hover:text-accent transition-colors" onclick="closeMobileMenu()">制作の流れ</a>
+      <a href="#contact" class="accent-bg text-slate-900 font-bold px-4 py-2 rounded-full text-xs text-center hover:opacity-90 transition-opacity" onclick="closeMobileMenu()">お問い合わせ</a>
+    </div>
+  </header>
+
+
+  <!-- ===== 1. HERO ===== -->
+  <section id="hero" class="min-h-screen flex items-center pt-16 relative overflow-hidden">
+
+    <!-- 背景グリッド -->
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: linear-gradient(#6ee7b7 1px, transparent 1px), linear-gradient(90deg, #6ee7b7 1px, transparent 1px);
+                background-size: 40px 40px;"></div>
+
+    <!-- 背景グロー -->
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full opacity-10"
+         style="background: radial-gradient(circle, #6ee7b7, transparent 70%);"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-24 relative">
+      <div class="max-w-3xl">
+        <!-- タグ -->
+        <span class="fade-up delay-1 inline-block font-mono text-xs text-accent border border-accent/30 px-3 py-1 rounded-full mb-6">
+          Web制作フリーランス
+        </span>
+
+        <!-- メインコピー -->
+        <h1 class="fade-up delay-2 text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
+          集客できるLP<span class="accent-text">＋</span><br />
+          <span class="accent-text">Webシステム構築を</span><br />
+          まとめて作ります！
+        </h1>
+
+        <!-- サブコピー -->
+        <div class="fade-up delay-3 text-slate-400 text-lg sm:text-xl mb-10 max-w-xl space-y-3">
+          <p>静的LPだけじゃない。</p>
+          <p>予約システム・料金シミュレーター・<br class="hidden sm:block" />問い合わせフォームまで対応。</p>
+          <p>お客様の「欲しい」を1人でワンストップで形にします。</p>
+        </div>
+
+        <!-- CTAボタン -->
+        <div class="fade-up delay-3 flex flex-col sm:flex-row gap-4">
+          <a href="#contact" class="accent-bg text-slate-900 font-bold px-8 py-4 rounded-full text-base hover:opacity-90 transition-all text-center glow">
+            無料相談する →
+          </a>
+          <a href="#works" class="border border-slate-600 text-slate-300 font-medium px-8 py-4 rounded-full text-base hover:border-accent hover:text-accent transition-all text-center">
+            制作実績を見る
+          </a>
+        </div>
+
+        <!-- 実績数値 -->
+        <div class="fade-up delay-3 flex flex-wrap gap-8 mt-16 text-center">
+          <div>
+            <p class="text-3xl font-bold accent-text font-mono">6+</p>
+            <p class="text-xs text-slate-500 mt-1">制作実績</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold accent-text font-mono">4</p>
+            <p class="text-xs text-slate-500 mt-1">対応サービス</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold accent-text font-mono">1週間</p>
+            <p class="text-xs text-slate-500 mt-1">～納品目安</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== 2. できること ===== -->
+  <section id="services" class="py-24 bg-slate-900/60">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <!-- セクションヘッダー -->
+      <div class="text-center mb-16">
+        <span class="font-mono text-xs text-accent">// SERVICES</span>
+        <h2 class="text-3xl sm:text-4xl font-bold mt-3">できること</h2>
+        <p class="text-slate-400 mt-4 max-w-xl mx-auto">LPから機能開発まで、Webに関する「欲しい」をまとめてお任せください。</p>
+      </div>
+
+      <!-- サービスカード -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- LP制作 -->
+        <div class="card-hover bg-slate-800/60 border border-slate-700 rounded-2xl p-6 flex flex-col gap-4">
+          <div class="w-12 h-12 accent-bg rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white mb-2">LP制作</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">集客に特化したランディングページを制作。レスポンシブ対応・SEO基礎設定込み。</p>
+          </div>
+          <ul class="mt-auto text-xs text-slate-500 space-y-1">
+            <li class="flex items-center gap-2"><span class="text-accent">✓</span> モバイルファースト</li>
+            <li class="flex items-center gap-2"><span class="text-accent">✓</span> SEO基本設定</li>
+            <li class="flex items-center gap-2"><span class="text-accent">✓</span> OGP・メタタグ</li>
+          </ul>
+        </div>
+
+        <!-- 予約システム -->
+        <div class="card-hover bg-slate-800/60 border border-accent/40 rounded-2xl p-6 flex flex-col gap-4 relative">
+          <span class="absolute top-4 right-4 accent-bg text-slate-900 text-xs font-bold px-2 py-0.5 rounded-full">人気</span>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-slate-700">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white mb-2">予約システム構築</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">STORES予約・外部APIとの連携設定、またはカスタムフォームで予約受付を実装。</p>
+          </div>
+          <ul class="mt-auto text-xs text-slate-500 space-y-1">
+            <li class="flex items-center gap-2"><span class="text-accent">✓</span> カレンダー連携</li>
+            <li class="flex items-center gap-2"><span class="text-accent">✓</span> 自動メール返信</li>
+            <li class="flex items-center gap-2"><span class="text-accent">✓</span> スマホ対応</li>
+          </ul>
+        </div>
+
+        <!-- 料金シミュレーター -->
+        <div class="card-hover bg-slate-800/60 border border-slate-700 rounded-2xl p-6 flex flex-col gap-4">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-slate-700">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white mb-2">料金シミュレーター</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">選択・入力するだけで見積もりが自動計算。ユーザーの問い合わせ前の疑問を解消。</p>
+          </div>
+          <ul class="mt-auto text-xs text-slate-500 space-y-1">
+            <li class="flex items-center gap-2"><span class="text-accent">✓</span> リアルタイム計算</li>
+            <li class="flex items-center gap-2"><span class="text-accent">✓</span> 条件分岐対応</li>
+            <li class="flex items-center gap-2"><span class="text-accent">✓</span> PDF出力連携</li>
+          </ul>
+        </div>
+
+        <!-- フォーム構築 -->
+        <div class="card-hover bg-slate-800/60 border border-slate-700 rounded-2xl p-6 flex flex-col gap-4">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-slate-700">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white mb-2">フォーム構築</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">お問い合わせ・アンケート・申込フォームをスパム対策・バリデーション付きで実装。</p>
+          </div>
+          <ul class="mt-auto text-xs text-slate-500 space-y-1">
+            <li class="flex items-center gap-2"><span class="text-accent">✓</span> スパム対策</li>
+            <li class="flex items-center gap-2"><span class="text-accent">✓</span> メール自動送信</li>
+            <li class="flex items-center gap-2"><span class="text-accent">✓</span> スプレッドシート連携</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== 3. 制作実績 ===== -->
+  <section id="works" class="py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-16">
+        <span class="font-mono text-xs text-accent">// WORKS</span>
+        <h2 class="text-3xl sm:text-4xl font-bold mt-3">制作実績</h2>
+        <p class="text-slate-400 mt-4">業種・目的に合わせたLP・システムを制作しています。</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- 実績カード 1 -->
+        <div class="card-hover bg-slate-800/60 border border-slate-700 rounded-2xl overflow-hidden">
+          <div class="relative">
+            <img src="https://placehold.co/600x340/1e293b/6ee7b7?text=Hair+Salon+BLOOM" alt="美容院LP" class="w-full h-48 object-cover" />
+            <span class="absolute top-3 left-3 bg-accent text-slate-900 text-xs font-bold px-2 py-1 rounded-md">機能付き</span>
+          </div>
+          <div class="p-5">
+            <p class="text-xs text-slate-500 font-mono mb-1">Beauty / 美容院</p>
+            <h3 class="font-bold text-white text-base mb-2">Hair Salon BLOOM｜予約LP</h3>
+            <p class="text-slate-400 text-sm mb-4">STORES予約連携・完全レスポンシブ対応のプライベートサロンLP</p>
+            <a href="#contact" class="text-accent text-sm font-medium hover:underline flex items-center gap-1">
+              詳細を見る <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 実績カード 2 -->
+        <div class="card-hover bg-slate-800/60 border border-slate-700 rounded-2xl overflow-hidden">
+          <div class="relative">
+            <img src="https://placehold.co/600x340/1e293b/38bdf8?text=Sakura+Seikotsu" alt="整骨院LP" class="w-full h-48 object-cover" />
+            <span class="absolute top-3 left-3 bg-accent text-slate-900 text-xs font-bold px-2 py-1 rounded-md">機能付き</span>
+          </div>
+          <div class="p-5">
+            <p class="text-xs text-slate-500 font-mono mb-1">Medical / 整骨院</p>
+            <h3 class="font-bold text-white text-base mb-2">さくら整骨院｜予約・フォームLP</h3>
+            <p class="text-slate-400 text-sm mb-4">LINE予約ボタン＋お問い合わせフォーム付き整骨院ランディングページ</p>
+            <a href="#contact" class="text-accent text-sm font-medium hover:underline flex items-center gap-1">
+              詳細を見る <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 実績カード 3 -->
+        <div class="card-hover bg-slate-800/60 border border-slate-700 rounded-2xl overflow-hidden">
+          <div class="relative">
+            <img src="https://placehold.co/600x340/1e293b/a78bfa?text=Wagyu+Tei" alt="飲食店LP" class="w-full h-48 object-cover" />
+          </div>
+          <div class="p-5">
+            <p class="text-xs text-slate-500 font-mono mb-1">Food / 飲食店</p>
+            <h3 class="font-bold text-white text-base mb-2">和牛亭｜レストランLP</h3>
+            <p class="text-slate-400 text-sm mb-4">高級感あるビジュアル重視の飲食店ランディングページ</p>
+            <a href="#contact" class="text-accent text-sm font-medium hover:underline flex items-center gap-1">
+              詳細を見る <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 実績カード 4 -->
+        <div class="card-hover bg-slate-800/60 border border-slate-700 rounded-2xl overflow-hidden">
+          <div class="relative">
+            <img src="https://placehold.co/600x340/1e293b/fb923c?text=Fudosan+LP" alt="不動産LP" class="w-full h-48 object-cover" />
+            <span class="absolute top-3 left-3 bg-accent text-slate-900 text-xs font-bold px-2 py-1 rounded-md">機能付き</span>
+          </div>
+          <div class="p-5">
+            <p class="text-xs text-slate-500 font-mono mb-1">Real Estate / 不動産</p>
+            <h3 class="font-bold text-white text-base mb-2">不動産LP｜料金シミュレーター付き</h3>
+            <p class="text-slate-400 text-sm mb-4">ローン返済シミュレーター＋問い合わせフォームを実装した不動産LP</p>
+            <a href="#contact" class="text-accent text-sm font-medium hover:underline flex items-center gap-1">
+              詳細を見る <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 実績カード 5 -->
+        <div class="card-hover bg-slate-800/60 border border-slate-700 rounded-2xl overflow-hidden">
+          <div class="relative">
+            <img src="https://placehold.co/600x340/1e293b/f472b6?text=Fitness+LP" alt="フィットネスLP" class="w-full h-48 object-cover" />
+            <span class="absolute top-3 left-3 bg-accent text-slate-900 text-xs font-bold px-2 py-1 rounded-md">機能付き</span>
+          </div>
+          <div class="p-5">
+            <p class="text-xs text-slate-500 font-mono mb-1">Fitness / パーソナルジム</p>
+            <h3 class="font-bold text-white text-base mb-2">パーソナルジム｜体験予約LP</h3>
+            <p class="text-slate-400 text-sm mb-4">体験トレーニング申込フォーム＋料金プランシミュレーター付きLP</p>
+            <a href="#contact" class="text-accent text-sm font-medium hover:underline flex items-center gap-1">
+              詳細を見る <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 実績カード 6 -->
+        <div class="card-hover bg-slate-800/60 border border-slate-700 rounded-2xl overflow-hidden">
+          <div class="relative">
+            <img src="https://placehold.co/600x340/1e293b/34d399?text=Juku+LP" alt="学習塾LP" class="w-full h-48 object-cover" />
+            <span class="absolute top-3 left-3 bg-accent text-slate-900 text-xs font-bold px-2 py-1 rounded-md">機能付き</span>
+          </div>
+          <div class="p-5">
+            <p class="text-xs text-slate-500 font-mono mb-1">Education / 学習塾</p>
+            <h3 class="font-bold text-white text-base mb-2">学習塾｜無料体験申込LP</h3>
+            <p class="text-slate-400 text-sm mb-4">無料体験申込フォーム＋合格実績をアピールする塾向けLP</p>
+            <a href="#contact" class="text-accent text-sm font-medium hover:underline flex items-center gap-1">
+              詳細を見る <span>→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== 4. 料金目安 ===== -->
+  <section id="pricing" class="py-24 bg-slate-900/60">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-16">
+        <span class="font-mono text-xs text-accent">// PRICING</span>
+        <h2 class="text-3xl sm:text-4xl font-bold mt-3">料金目安</h2>
+        <p class="text-slate-400 mt-4">すべて応相談・カスタム対応可。まずはお気軽にご相談ください。</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- プラン1：LP基本 -->
+        <div class="card-hover bg-slate-800/60 border border-slate-700 rounded-2xl p-8 flex flex-col">
+          <p class="font-mono text-xs text-slate-500 mb-2">PLAN 01</p>
+          <h3 class="text-xl font-bold text-white mb-1">LP基本</h3>
+          <p class="text-slate-400 text-sm mb-6">シンプルな静的LP。まず試したい方に。</p>
+          <p class="text-4xl font-bold text-white font-mono mb-1">¥30,000<span class="text-lg font-normal text-slate-400">〜</span></p>
+          <p class="text-xs text-slate-500 mb-8">納期目安：3〜5営業日</p>
+          <ul class="text-sm text-slate-400 space-y-3 mb-8">
+            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">✓</span> 1ページLP（〜7セクション）</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">✓</span> レスポンシブ対応</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">✓</span> SEO基本設定・OGP</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">✓</span> 修正2回まで無料</li>
+            <li class="flex items-start gap-2 text-slate-600"><span>✗</span> フォーム・システム機能</li>
+          </ul>
+          <a href="#contact" class="mt-auto border border-slate-600 text-slate-300 text-center font-medium px-6 py-3 rounded-full hover:border-accent hover:text-accent transition-all">
+            相談する
+          </a>
+        </div>
+
+        <!-- プラン2：LP＋機能（推奨） -->
+        <div class="card-hover bg-slate-800/60 border border-accent/60 rounded-2xl p-8 flex flex-col relative glow">
+          <span class="absolute -top-4 left-1/2 -translate-x-1/2 accent-bg text-slate-900 text-xs font-bold px-4 py-1 rounded-full">おすすめ</span>
+          <p class="font-mono text-xs text-accent mb-2">PLAN 02</p>
+          <h3 class="text-xl font-bold text-white mb-1">LP＋機能</h3>
+          <p class="text-slate-400 text-sm mb-6">予約・フォーム機能つきでしっかり集客。</p>
+          <p class="text-4xl font-bold accent-text font-mono mb-1">¥60,000<span class="text-lg font-normal text-slate-400">〜</span></p>
+          <p class="text-xs text-slate-500 mb-8">納期目安：5〜10営業日</p>
+          <ul class="text-sm text-slate-400 space-y-3 mb-8">
+            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">✓</span> 1ページLP（セクション数無制限）</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">✓</span> レスポンシブ・SEO・OGP</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">✓</span> 予約フォーム or シミュレーター</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">✓</span> メール自動返信</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">✓</span> 修正3回まで無料</li>
+          </ul>
+          <a href="#contact" class="mt-auto accent-bg text-slate-900 text-center font-bold px-6 py-3 rounded-full hover:opacity-90 transition-opacity">
+            相談する
+          </a>
+        </div>
+
+        <!-- プラン3：フルカスタム -->
+        <div class="card-hover bg-slate-800/60 border border-slate-700 rounded-2xl p-8 flex flex-col">
+          <p class="font-mono text-xs text-slate-500 mb-2">PLAN 03</p>
+          <h3 class="text-xl font-bold text-white mb-1">フルカスタム</h3>
+          <p class="text-slate-400 text-sm mb-6">複数ページ・複合機能・外部連携まで。</p>
+          <p class="text-4xl font-bold text-white font-mono mb-1">¥100,000<span class="text-lg font-normal text-slate-400">〜</span></p>
+          <p class="text-xs text-slate-500 mb-8">納期目安：2〜4週間</p>
+          <ul class="text-sm text-slate-400 space-y-3 mb-8">
+            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">✓</span> 複数ページ対応</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">✓</span> 外部API・ツール連携</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">✓</span> 複合システム機能</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">✓</span> 運用・保守サポート</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">✓</span> 修正無制限（期間内）</li>
+          </ul>
+          <a href="#contact" class="mt-auto border border-slate-600 text-slate-300 text-center font-medium px-6 py-3 rounded-full hover:border-accent hover:text-accent transition-all">
+            相談する
+          </a>
+        </div>
+
+      </div>
+
+      <p class="text-center text-slate-500 text-sm mt-8">※ 料金はすべて税込。要件・ボリュームによって変動します。まずはお気軽にご相談ください。</p>
+    </div>
+  </section>
+
+
+  <!-- ===== 5. 制作の流れ ===== -->
+  <section id="flow" class="py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-16">
+        <span class="font-mono text-xs text-accent">// FLOW</span>
+        <h2 class="text-3xl sm:text-4xl font-bold mt-3">制作の流れ</h2>
+        <p class="text-slate-400 mt-4">ご相談から納品まで、丁寧にサポートします。</p>
+      </div>
+
+      <div class="space-y-0">
+
+        <!-- ステップ1 -->
+        <div class="flex gap-6 md:gap-10 items-start">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 accent-bg rounded-full flex items-center justify-center font-bold text-slate-900 font-mono text-sm flex-shrink-0">01</div>
+            <div class="w-0.5 h-16 bg-gradient-to-b from-accent/50 to-transparent mt-2"></div>
+          </div>
+          <div class="pb-10">
+            <h3 class="text-lg font-bold text-white mb-2">ヒアリング・お見積もり</h3>
+            <p class="text-slate-400 text-sm leading-loose">お問い合わせ後、Googleフォームやメールで要件をお伺いします。<br />業種・目的・必要な機能・予算感をお教えください。<br />通常1営業日以内にお見積もりをお送りします。</p>
+          </div>
+        </div>
+
+        <!-- ステップ2 -->
+        <div class="flex gap-6 md:gap-10 items-start">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 bg-slate-700 border border-accent/50 rounded-full flex items-center justify-center font-bold text-accent font-mono text-sm flex-shrink-0">02</div>
+            <div class="w-0.5 h-16 bg-gradient-to-b from-accent/30 to-transparent mt-2"></div>
+          </div>
+          <div class="pb-10">
+            <h3 class="text-lg font-bold text-white mb-2">ご契約・素材収集</h3>
+            <p class="text-slate-400 text-sm leading-loose">お見積もりにご納得いただけたら、ご契約（ご入金）の手続きをお願いします。<br />あわせてロゴ・写真・テキスト素材をご提供ください。<br />素材がない場合はプレースホルダーで対応可能です。</p>
+          </div>
+        </div>
+
+        <!-- ステップ3 -->
+        <div class="flex gap-6 md:gap-10 items-start">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 bg-slate-700 border border-accent/50 rounded-full flex items-center justify-center font-bold text-accent font-mono text-sm flex-shrink-0">03</div>
+            <div class="w-0.5 h-16 bg-gradient-to-b from-accent/30 to-transparent mt-2"></div>
+          </div>
+          <div class="pb-10">
+            <h3 class="text-lg font-bold text-white mb-2">デザイン・開発</h3>
+            <p class="text-slate-400 text-sm leading-loose">コーディングを進め、テスト用URLにて確認いただけます。<br />LP基本プランは3〜5営業日、LP＋機能プランは5〜10営業日が目安です。</p>
+          </div>
+        </div>
+
+        <!-- ステップ4 -->
+        <div class="flex gap-6 md:gap-10 items-start">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 bg-slate-700 border border-accent/50 rounded-full flex items-center justify-center font-bold text-accent font-mono text-sm flex-shrink-0">04</div>
+            <div class="w-0.5 h-16 bg-gradient-to-b from-accent/30 to-transparent mt-2"></div>
+          </div>
+          <div class="pb-10">
+            <h3 class="text-lg font-bold text-white mb-2">確認・修正対応</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">初稿をご確認いただき、修正点をご連絡ください。プランに応じた修正回数内で丁寧に対応します。</p>
+          </div>
+        </div>
+
+        <!-- ステップ5 -->
+        <div class="flex gap-6 md:gap-10 items-start">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 accent-bg rounded-full flex items-center justify-center font-bold text-slate-900 font-mono text-sm flex-shrink-0">05</div>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white mb-2">納品・公開サポート</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">ファイル納品またはサーバーへのアップロード代行まで対応。公開後1週間は無償でサポートします。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== 6. お問い合わせ ===== -->
+  <section id="contact" class="py-24 bg-slate-900/60">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-16">
+        <span class="font-mono text-xs text-accent">// CONTACT</span>
+        <h2 class="text-3xl sm:text-4xl font-bold mt-3">お問い合わせ</h2>
+        <p class="text-slate-400 mt-4">まずはお気軽にご連絡ください。無料でご相談を承ります。</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+        <!-- メール -->
+        <a href="mailto:hisayoshi0976@gmail.com"
+           class="card-hover bg-slate-800/60 border border-slate-700 rounded-2xl p-8 flex flex-col items-center text-center gap-4 hover:border-accent/50 transition-colors group">
+          <div class="w-16 h-16 bg-slate-700 group-hover:bg-accent/20 rounded-2xl flex items-center justify-center transition-colors">
+            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-white text-lg mb-1">メールで相談</h3>
+            <p class="text-slate-400 text-sm mb-3">24時間受付・1営業日以内に返信</p>
+            <p class="text-accent text-sm font-mono">hisayoshi0976@gmail.com</p>
+          </div>
+          <span class="accent-bg text-slate-900 text-sm font-bold px-6 py-2 rounded-full">メールを送る →</span>
+        </a>
+
+        <!-- ココナラ -->
+        <a href="https://coconala.com/" target="_blank" rel="noopener noreferrer"
+           class="card-hover bg-slate-800/60 border border-slate-700 rounded-2xl p-8 flex flex-col items-center text-center gap-4 hover:border-accent/50 transition-colors group">
+          <div class="w-16 h-16 bg-slate-700 group-hover:bg-accent/20 rounded-2xl flex items-center justify-center transition-colors">
+            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-white text-lg mb-1">ココナラで依頼</h3>
+            <p class="text-slate-400 text-sm mb-3">安心のエスクロー決済・評価確認可</p>
+            <p class="text-accent text-sm font-mono">coconala.com</p>
+          </div>
+          <span class="accent-bg text-slate-900 text-sm font-bold px-6 py-2 rounded-full">ページを見る →</span>
+        </a>
+
+      </div>
+
+      <!-- 注意書き -->
+      <div class="mt-10 bg-slate-800/40 border border-slate-700 rounded-xl p-6 text-sm text-slate-400 space-y-2">
+        <p class="flex items-start gap-2"><span class="text-accent mt-0.5">●</span> お問い合わせ後、要件確認フォームをお送りします。記入いただくとスムーズです。</p>
+        <p class="flex items-start gap-2"><span class="text-accent mt-0.5">●</span> 守秘義務（NDA）の締結も対応可能です。</p>
+        <p class="flex items-start gap-2"><span class="text-accent mt-0.5">●</span> ご予算が合わない場合は、範囲を調整してご提案します。</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="py-10 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a href="#hero" class="font-mono text-lg font-bold accent-text">hisayoshi.dev</a>
+      <p class="text-slate-600 text-xs font-mono">© 2025 Hisayoshi. All rights reserved.</p>
+      <nav class="flex gap-6 text-xs text-slate-500">
+        <a href="#services" class="hover:text-accent transition-colors">できること</a>
+        <a href="#works" class="hover:text-accent transition-colors">実績</a>
+        <a href="#contact" class="hover:text-accent transition-colors">連絡</a>
+      </nav>
+    </div>
+  </footer>
+
+
+  <!-- ===== JS ===== -->
+  <script>
+    // モバイルメニュー開閉
+    const btn = document.getElementById('mobileMenuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+    function closeMobileMenu() {
+      menu.classList.add('hidden');
+    }
+
+    // スクロール時にナビを強調
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 20) {
+        header.classList.add('shadow-lg', 'shadow-black/30');
+      } else {
+        header.classList.remove('shadow-lg', 'shadow-black/30');
+      }
+    });
+
+    // Intersection Observer でフェードイン
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card-hover').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
