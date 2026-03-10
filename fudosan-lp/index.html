@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>不動産売却・査定のご相談 | HOME TRUST不動産</title>
+  <meta name="description" content="HOME TRUST不動産は収益・事業用不動産の売却専門会社。累計1,200件超の売却実績、地域密着20年の経験豊富なプロがご対応します。無料査定受付中。" />
+  <meta property="og:title" content="不動産売却・査定のご相談 | HOME TRUST不動産" />
+  <meta property="og:description" content="地域密着20年・累計1,200件超。経験豊富なプロが不動産売却をサポートします。" />
+  <meta property="og:type" content="website" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { 700: '#1a3560', 800: '#142850', 900: '#0d1c38' },
+            gold: { 400: '#d4aa50', 500: '#c9a030', 600: '#b08820' },
+          },
+          fontFamily: { sans: ['"Noto Sans JP"', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* ヒーロー */
+    .hero-bg {
+      background-image: linear-gradient(to right, rgba(13,28,56,0.92) 45%, rgba(13,28,56,0.60) 100%),
+        url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* セクション見出し下線 */
+    .section-title {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 14px;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 3px;
+      background: #c9a030;
+    }
+
+    /* FAQ */
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-answer.open { max-height: 400px; }
+    .faq-icon { transition: transform 0.3s ease; }
+    .faq-open .faq-icon { transform: rotate(45deg); }
+
+    /* カード hover */
+    .hover-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .hover-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.10); }
+
+    /* ステップ矢印 */
+    .step-arrow { position: relative; }
+    .step-arrow:not(:last-child)::after {
+      content: '▶';
+      position: absolute;
+      right: -18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #c9a030;
+      font-size: 14px;
+    }
+    @media (max-width: 768px) { .step-arrow:not(:last-child)::after { display: none; } }
+  </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-white">
+
+<!-- ========================================
+  固定ヘッダー
+======================================== -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-1">
+      <span class="text-navy-700 font-black text-lg tracking-wide">HOME TRUST</span>
+      <span class="text-gray-500 text-xs ml-1">不動産</span>
+    </div>
+    <div class="hidden md:flex items-center gap-6 text-sm text-gray-600">
+      <a href="#trouble" class="hover:text-navy-700 transition-colors">お悩み</a>
+      <a href="#case"    class="hover:text-navy-700 transition-colors">相談事例</a>
+      <a href="#reason"  class="hover:text-navy-700 transition-colors">選ばれる理由</a>
+      <a href="#faq"     class="hover:text-navy-700 transition-colors">よくある質問</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="tel:0120-000-000" class="hidden sm:flex items-center gap-1 text-navy-700 font-bold text-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        0120-000-000
+      </a>
+      <a href="#contact" class="bg-gold-500 hover:bg-gold-600 text-white font-bold text-sm px-4 py-2 rounded transition-colors">
+        無料査定を依頼
+      </a>
+    </div>
+  </div>
+</header>
+
+
+<!-- ========================================
+  ① ヒーロー
+======================================== -->
+<section class="hero-bg min-h-screen flex items-center pt-16">
+  <div class="max-w-6xl mx-auto px-4 py-20 w-full">
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+
+      <!-- 左：コピー -->
+      <div class="flex-1 text-white">
+        <p class="inline-block bg-gold-500 text-white text-xs font-bold px-3 py-1 rounded mb-5 tracking-wider">
+          売却実績 5年連続 地域 No.1
+        </p>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-black leading-snug mb-6">
+          不動産売却は<br />
+          <span class="text-gold-400">経験豊富なプロ</span>に<br />
+          お任せください
+        </h1>
+        <p class="text-white/80 text-base md:text-lg leading-relaxed mb-8">
+          マンション・一戸建て・収益物件・相続物件など、<br class="hidden md:block" />
+          あらゆる不動産の売却をトータルサポート。<br class="hidden md:block" />
+          まずは<span class="text-gold-400 font-bold">無料査定</span>からお気軽にご相談ください。
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="#contact"
+             class="bg-gold-500 hover:bg-gold-600 text-white font-black text-base px-8 py-4 rounded-lg transition-all hover:scale-105 shadow-xl text-center">
+            まずは無料査定する →
+          </a>
+          <a href="tel:0120-000-000"
+             class="flex items-center justify-center gap-2 border-2 border-white/60 text-white hover:bg-white/10 font-bold text-base px-6 py-4 rounded-lg transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            0120-000-000
+          </a>
+        </div>
+        <p class="text-white/50 text-xs mt-4">受付時間 9:00〜18:00（年中無休）　査定・相談は完全無料</p>
+      </div>
+
+      <!-- 右：クイック査定 -->
+      <div class="w-full lg:w-96 bg-white rounded-2xl shadow-2xl p-6">
+        <div class="text-center mb-5">
+          <p class="text-gold-500 font-bold text-xs tracking-widest mb-1">FREE</p>
+          <h2 class="text-navy-700 font-black text-xl">無料査定を依頼する</h2>
+          <p class="text-gray-400 text-xs mt-1">60秒で簡単入力・査定は完全無料</p>
+        </div>
+        <form class="space-y-3">
+          <div>
+            <label class="block text-xs font-bold text-gray-600 mb-1">物件の種別 <span class="text-red-500">*</span></label>
+            <select class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-navy-700 bg-gray-50">
+              <option value="">選択してください</option>
+              <option>マンション</option>
+              <option>一戸建て</option>
+              <option>土地</option>
+              <option>収益物件（アパート・マンション）</option>
+              <option>その他</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-600 mb-1">所在地 <span class="text-red-500">*</span></label>
+            <input type="text" placeholder="例）東京都渋谷区〇〇1-1-1"
+              class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-navy-700 bg-gray-50" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-600 mb-1">お名前 <span class="text-red-500">*</span></label>
+            <input type="text" placeholder="山田 太郎"
+              class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-navy-700 bg-gray-50" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-600 mb-1">電話番号 <span class="text-red-500">*</span></label>
+            <input type="tel" placeholder="090-0000-0000"
+              class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-navy-700 bg-gray-50" />
+          </div>
+          <button type="submit"
+            class="w-full bg-gold-500 hover:bg-gold-600 text-white font-black py-4 rounded-xl text-base transition-all hover:scale-105 shadow-lg">
+            無料で査定を依頼する →
+          </button>
+          <p class="text-xs text-gray-400 text-center">個人情報は厳重に管理いたします</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+  ② 実績数字バー
+======================================== -->
+<section class="bg-navy-700 py-10">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
+      <div class="border-r border-white/20 last:border-r-0 px-4">
+        <p class="text-4xl md:text-5xl font-black text-gold-400">1,200<span class="text-xl">件+</span></p>
+        <p class="text-xs text-white/60 mt-1">累計売却実績</p>
+      </div>
+      <div class="border-r border-white/20 last:border-r-0 px-4">
+        <p class="text-4xl md:text-5xl font-black text-gold-400">98<span class="text-xl">%</span></p>
+        <p class="text-xs text-white/60 mt-1">顧客満足度</p>
+      </div>
+      <div class="border-r border-white/20 last:border-r-0 px-4">
+        <p class="text-4xl md:text-5xl font-black text-gold-400">20<span class="text-xl">年</span></p>
+        <p class="text-xs text-white/60 mt-1">地域密着の実績</p>
+      </div>
+      <div class="px-4">
+        <p class="text-4xl md:text-5xl font-black text-gold-400">72<span class="text-xl">h</span></p>
+        <p class="text-xs text-white/60 mt-1">査定回答スピード</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+  ③ こんなお悩みありませんか？
+======================================== -->
+<section id="trouble" class="py-20 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-14">
+      <h2 class="text-2xl md:text-3xl font-black text-navy-700 section-title">
+        その収益物件、今こそ見直しが<br class="md:hidden" />必要なタイミングです
+      </h2>
+      <p class="text-gray-500 text-sm mt-8">こんなお悩みをお持ちではありませんか？</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="hover-card bg-white rounded-xl p-6 shadow-sm border-t-4 border-navy-700">
+        <div class="w-12 h-12 bg-navy-700/10 rounded-full flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-navy-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="font-bold text-navy-700 text-base mb-2">資産価値の見直し</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">「今の相場でいくらで売れるの？」不動産の資産価値を正確に把握したい方</p>
+      </div>
+
+      <div class="hover-card bg-white rounded-xl p-6 shadow-sm border-t-4 border-navy-700">
+        <div class="w-12 h-12 bg-navy-700/10 rounded-full flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-navy-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        </div>
+        <h3 class="font-bold text-navy-700 text-base mb-2">不動産投資の出口戦略</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">空室が増えてきた、修繕費がかさむ、そろそろ売り時かも、とお考えの方</p>
+      </div>
+
+      <div class="hover-card bg-white rounded-xl p-6 shadow-sm border-t-4 border-navy-700">
+        <div class="w-12 h-12 bg-navy-700/10 rounded-full flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-navy-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        </div>
+        <h3 class="font-bold text-navy-700 text-base mb-2">相続・資産整理</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">相続した不動産の処分、遺産分割のための売却など、複雑な案件もお任せください</p>
+      </div>
+
+      <div class="hover-card bg-white rounded-xl p-6 shadow-sm border-t-4 border-gold-500">
+        <div class="w-12 h-12 bg-gold-500/10 rounded-full flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="font-bold text-navy-700 text-base mb-2">なかなか売れない</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">他社に依頼中だが何ヶ月も売れない、もっと早く・高く売りたいとお悩みの方</p>
+      </div>
+
+      <div class="hover-card bg-white rounded-xl p-6 shadow-sm border-t-4 border-gold-500">
+        <div class="w-12 h-12 bg-gold-500/10 rounded-full flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <h3 class="font-bold text-navy-700 text-base mb-2">手続きが複雑でわからない</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">契約書・税金・登記など、売却に関わる複雑な手続きを全て任せたい方</p>
+      </div>
+
+      <div class="hover-card bg-white rounded-xl p-6 shadow-sm border-t-4 border-gold-500">
+        <div class="w-12 h-12 bg-gold-500/10 rounded-full flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        </div>
+        <h3 class="font-bold text-navy-700 text-base mb-2">住みながら売却したい</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">次の住まいが決まるまで現在の家に住み続けながら、並行して売却活動したい方</p>
+      </div>
+    </div>
+
+    <p class="text-center text-navy-700 font-bold text-lg mt-12 mb-6">
+      上記のお悩み、全て HOME TRUST が解決します
+    </p>
+    <div class="text-center">
+      <a href="#contact"
+         class="inline-block bg-gold-500 hover:bg-gold-600 text-white font-black text-base px-10 py-4 rounded-xl transition-all hover:scale-105 shadow-lg">
+        まずは無料査定する →
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+  ④ 相談事例
+======================================== -->
+<section id="case" class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-14">
+      <h2 class="text-2xl md:text-3xl font-black text-navy-700 section-title">
+        相談事例
+      </h2>
+      <p class="text-gray-500 text-sm mt-8">実際にご依頼いただいたお客様の事例をご紹介します</p>
+    </div>
+
+    <div class="space-y-8">
+
+      <!-- 事例1 -->
+      <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100">
+        <div class="bg-navy-700 px-6 py-4 flex items-center gap-3">
+          <span class="bg-gold-500 text-white text-xs font-black px-3 py-1 rounded-full">事例 01</span>
+          <h3 class="text-white font-bold text-base">相続した実家のマンションを売却したい</h3>
+        </div>
+        <div class="p-6">
+          <div class="flex flex-col md:flex-row gap-6 items-start">
+            <div class="flex-shrink-0">
+              <img src="https://placehold.co/120x120/e8eef4/1a3560?text=相談者"
+                   alt="相談者" class="w-24 h-24 rounded-full object-cover" />
+              <p class="text-xs text-gray-500 text-center mt-2">50代・男性</p>
+            </div>
+            <div class="flex-1">
+              <p class="text-gray-600 text-sm leading-relaxed mb-5 bg-white rounded-xl p-4 border border-gray-100">
+                「父が亡くなり相続したマンションがあるのですが、自分は別に住居があるため、売却したいと思っています。相続の手続きも含めて、何から始めればいいかわからなくて…」
+              </p>
+              <div class="flex flex-col sm:flex-row gap-3">
+                <div class="step-arrow flex-1 bg-white rounded-xl p-4 border border-navy-700/20 text-center">
+                  <p class="text-gold-500 font-black text-xs mb-1">STEP 1</p>
+                  <p class="text-navy-700 font-bold text-sm">無料相談・査定</p>
+                  <p class="text-gray-400 text-xs mt-1">相続状況の確認と<br/>査定額の提示</p>
+                </div>
+                <div class="step-arrow flex-1 bg-white rounded-xl p-4 border border-navy-700/20 text-center">
+                  <p class="text-gold-500 font-black text-xs mb-1">STEP 2</p>
+                  <p class="text-navy-700 font-bold text-sm">相続登記サポート</p>
+                  <p class="text-gray-400 text-xs mt-1">司法書士と連携し<br/>手続きを代行</p>
+                </div>
+                <div class="flex-1 bg-navy-700 rounded-xl p-4 text-center">
+                  <p class="text-gold-400 font-black text-xs mb-1">RESULT</p>
+                  <p class="text-white font-bold text-sm">査定額より</p>
+                  <p class="text-gold-400 font-black text-xl">+180万円</p>
+                  <p class="text-white/70 text-xs mt-1">での成約を実現</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 事例2 -->
+      <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100">
+        <div class="bg-navy-700 px-6 py-4 flex items-center gap-3">
+          <span class="bg-gold-500 text-white text-xs font-black px-3 py-1 rounded-full">事例 02</span>
+          <h3 class="text-white font-bold text-base">投資用アパートを早急に売却したい</h3>
+        </div>
+        <div class="p-6">
+          <div class="flex flex-col md:flex-row gap-6 items-start">
+            <div class="flex-shrink-0">
+              <img src="https://placehold.co/120x120/e8eef4/1a3560?text=相談者"
+                   alt="相談者" class="w-24 h-24 rounded-full object-cover" />
+              <p class="text-xs text-gray-500 text-center mt-2">60代・男性</p>
+            </div>
+            <div class="flex-1">
+              <p class="text-gray-600 text-sm leading-relaxed mb-5 bg-white rounded-xl p-4 border border-gray-100">
+                「所有しているアパートで空室が増えてきて、修繕費も増加する一方。他社に依頼して8ヶ月経つのに売れません。できるだけ早く売却してキャッシュ化したいです。」
+              </p>
+              <div class="flex flex-col sm:flex-row gap-3">
+                <div class="step-arrow flex-1 bg-white rounded-xl p-4 border border-navy-700/20 text-center">
+                  <p class="text-gold-500 font-black text-xs mb-1">STEP 1</p>
+                  <p class="text-navy-700 font-bold text-sm">再査定・戦略立案</p>
+                  <p class="text-gray-400 text-xs mt-1">他社との比較分析<br/>売却戦略の見直し</p>
+                </div>
+                <div class="step-arrow flex-1 bg-white rounded-xl p-4 border border-navy-700/20 text-center">
+                  <p class="text-gold-500 font-black text-xs mb-1">STEP 2</p>
+                  <p class="text-navy-700 font-bold text-sm">投資家ネットワーク</p>
+                  <p class="text-gray-400 text-xs mt-1">独自ルートで<br/>投資家に直接紹介</p>
+                </div>
+                <div class="flex-1 bg-navy-700 rounded-xl p-4 text-center">
+                  <p class="text-gold-400 font-black text-xs mb-1">RESULT</p>
+                  <p class="text-white font-bold text-sm">依頼から</p>
+                  <p class="text-gold-400 font-black text-xl">45日</p>
+                  <p class="text-white/70 text-xs mt-1">で成約完了</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 事例3 -->
+      <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100">
+        <div class="bg-navy-700 px-6 py-4 flex items-center gap-3">
+          <span class="bg-gold-500 text-white text-xs font-black px-3 py-1 rounded-full">事例 03</span>
+          <h3 class="text-white font-bold text-base">住み替えのため自宅マンションを売却したい</h3>
+        </div>
+        <div class="p-6">
+          <div class="flex flex-col md:flex-row gap-6 items-start">
+            <div class="flex-shrink-0">
+              <img src="https://placehold.co/120x120/e8eef4/1a3560?text=相談者"
+                   alt="相談者" class="w-24 h-24 rounded-full object-cover" />
+              <p class="text-xs text-gray-500 text-center mt-2">40代・女性</p>
+            </div>
+            <div class="flex-1">
+              <p class="text-gray-600 text-sm leading-relaxed mb-5 bg-white rounded-xl p-4 border border-gray-100">
+                「子どもが独立したので、広い家から小さめの家に住み替えたいと思っています。住みながら売却できるかどうか、また買い替えのタイミングはどうすればよいか相談したいです。」
+              </p>
+              <div class="flex flex-col sm:flex-row gap-3">
+                <div class="step-arrow flex-1 bg-white rounded-xl p-4 border border-navy-700/20 text-center">
+                  <p class="text-gold-500 font-black text-xs mb-1">STEP 1</p>
+                  <p class="text-navy-700 font-bold text-sm">住み替えプラン提案</p>
+                  <p class="text-gray-400 text-xs mt-1">売却・購入の<br/>タイミングを設計</p>
+                </div>
+                <div class="step-arrow flex-1 bg-white rounded-xl p-4 border border-navy-700/20 text-center">
+                  <p class="text-gold-500 font-black text-xs mb-1">STEP 2</p>
+                  <p class="text-navy-700 font-bold text-sm">居住中のまま販売</p>
+                  <p class="text-gray-400 text-xs mt-1">内覧対応含め<br/>フルサポート</p>
+                </div>
+                <div class="flex-1 bg-navy-700 rounded-xl p-4 text-center">
+                  <p class="text-gold-400 font-black text-xs mb-1">RESULT</p>
+                  <p class="text-white font-bold text-sm">希望価格</p>
+                  <p class="text-gold-400 font-black text-xl">100%</p>
+                  <p class="text-white/70 text-xs mt-1">での売却成功</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+  ⑤ 選ばれる理由
+======================================== -->
+<section id="reason" class="py-20 bg-navy-900" style="background-color: #0d1c38;">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-14">
+      <h2 class="text-2xl md:text-3xl font-black text-white section-title">
+        HOME TRUST が選ばれる理由
+      </h2>
+    </div>
+
+    <div class="space-y-8">
+
+      <!-- 理由1 -->
+      <div class="flex flex-col md:flex-row gap-6 items-center bg-white/5 rounded-2xl p-6 md:p-8 border border-white/10">
+        <div class="flex-shrink-0 w-full md:w-64">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80"
+               alt="グループネットワーク"
+               class="w-full h-40 object-cover rounded-xl" />
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-4xl font-black text-gold-400/30">01</span>
+            <h3 class="text-white font-black text-lg">地域最大級のバイヤーネットワーク</h3>
+          </div>
+          <p class="text-white/70 text-sm leading-relaxed">
+            20年で築いた地域密着の独自ネットワークと、全国の不動産投資家データベースを活用。
+            一般市場に出る前に最適なバイヤーをマッチングし、より高値での売却を実現します。
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="bg-gold-500/20 text-gold-400 text-xs px-3 py-1 rounded-full">登録バイヤー 3,000名超</span>
+            <span class="bg-gold-500/20 text-gold-400 text-xs px-3 py-1 rounded-full">オフマーケット取引対応</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 理由2 -->
+      <div class="flex flex-col md:flex-row gap-6 items-center bg-white/5 rounded-2xl p-6 md:p-8 border border-white/10">
+        <div class="flex-shrink-0 w-full md:w-64">
+          <img src="https://placehold.co/600x320/1a3560/c9a030?text=日本人スタッフ写真"
+               alt="専任スタッフ"
+               class="w-full h-40 object-cover rounded-xl" />
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-4xl font-black text-gold-400/30">02</span>
+            <h3 class="text-white font-black text-lg">宅地建物取引士が専任サポート</h3>
+          </div>
+          <p class="text-white/70 text-sm leading-relaxed">
+            査定から引き渡しまで、宅地建物取引士の資格を持つ専任担当者が一貫してサポート。
+            担当者の変更なし・たらい回しなしで、いつでも同じ専門家に相談できる安心の体制です。
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="bg-gold-500/20 text-gold-400 text-xs px-3 py-1 rounded-full">宅地建物取引士在籍</span>
+            <span class="bg-gold-500/20 text-gold-400 text-xs px-3 py-1 rounded-full">専任担当制</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 理由3 -->
+      <div class="flex flex-col md:flex-row gap-6 items-center bg-white/5 rounded-2xl p-6 md:p-8 border border-white/10">
+        <div class="flex-shrink-0 w-full md:w-64">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80"
+               alt="提案資料"
+               class="w-full h-40 object-cover rounded-xl" />
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-4xl font-black text-gold-400/30">03</span>
+            <h3 class="text-white font-black text-lg">独自の価格戦略で高値売却を実現</h3>
+          </div>
+          <p class="text-white/70 text-sm leading-relaxed">
+            独自のビッグデータと市場分析をもとに、売却時期・価格設定・販売戦略を最適化。
+            他社の査定額に満足できなかった方も、平均で査定額より約5〜10%高い成約を実現しています。
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="bg-gold-500/20 text-gold-400 text-xs px-3 py-1 rounded-full">平均成約率 94%</span>
+            <span class="bg-gold-500/20 text-gold-400 text-xs px-3 py-1 rounded-full">平均売却期間 2.8ヶ月</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+  ⑥ お客様の声
+======================================== -->
+<section class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-14">
+      <h2 class="text-2xl md:text-3xl font-black text-navy-700 section-title">
+        お客様の声
+      </h2>
+      <p class="text-gray-500 text-sm mt-8">実際に売却されたお客様からのご感想</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="hover-card bg-gray-50 rounded-2xl p-6 border border-gray-100">
+        <div class="text-gold-500 text-lg mb-3">★★★★★</div>
+        <p class="text-gray-700 text-sm leading-relaxed mb-5">
+          「相続したマンションの件でご相談しました。法律関係も含め丁寧にサポートいただき、他社より200万円高く売却できました。本当に感謝しています。」
+        </p>
+        <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+          <img src="https://placehold.co/56x56/dce4ed/1a3560?text=お客様" class="w-12 h-12 rounded-full" alt="お客様" />
+          <div>
+            <p class="font-bold text-navy-700 text-sm">田中 恵子 様</p>
+            <p class="text-xs text-gray-400">東京都 / マンション売却</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hover-card bg-gray-50 rounded-2xl p-6 border border-gray-100">
+        <div class="text-gold-500 text-lg mb-3">★★★★★</div>
+        <p class="text-gray-700 text-sm leading-relaxed mb-5">
+          「転勤が急に決まり、6週間という短期間で希望価格での売却が完了。スピーディーな対応と丁寧な説明に大変満足しています。またご縁があればお願いしたいです。」
+        </p>
+        <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+          <img src="https://placehold.co/56x56/dce4ed/1a3560?text=お客様" class="w-12 h-12 rounded-full" alt="お客様" />
+          <div>
+            <p class="font-bold text-navy-700 text-sm">山本 健一 様</p>
+            <p class="text-xs text-gray-400">神奈川県 / 一戸建て売却</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hover-card bg-gray-50 rounded-2xl p-6 border border-gray-100">
+        <div class="text-gold-500 text-lg mb-3">★★★★★</div>
+        <p class="text-gray-700 text-sm leading-relaxed mb-5">
+          「他社に1年以上依頼しても売れなかった物件が、3ヶ月で売却成功！地域のネットワークと戦略の違いを実感しました。最初からここにお願いすればよかったです。」
+        </p>
+        <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+          <img src="https://placehold.co/56x56/dce4ed/1a3560?text=お客様" class="w-12 h-12 rounded-full" alt="お客様" />
+          <div>
+            <p class="font-bold text-navy-700 text-sm">佐藤 美穂 様</p>
+            <p class="text-xs text-gray-400">埼玉県 / 収益物件売却</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+  ⑦ よくある質問
+======================================== -->
+<section id="faq" class="py-20 bg-gray-50">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="text-center mb-14">
+      <h2 class="text-2xl md:text-3xl font-black text-navy-700 section-title">
+        よくある質問
+      </h2>
+    </div>
+
+    <div class="space-y-3" id="faqWrap">
+      <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100">
+        <button class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-gold-500 font-black text-sm flex-shrink-0">Q</span>
+            <span class="font-bold text-navy-700 text-sm">査定は無料ですか？売却しなくてもいいですか？</span>
+          </div>
+          <span class="faq-icon text-gold-500 text-xl font-light flex-shrink-0 ml-3">＋</span>
+        </button>
+        <div class="faq-answer px-5">
+          <div class="flex gap-3 pb-4">
+            <span class="text-navy-700 font-black text-sm flex-shrink-0">A</span>
+            <p class="text-gray-600 text-sm leading-relaxed">査定は完全無料です。査定後に「やっぱり売らない」という場合も費用は一切かかりません。まずはお気軽にご相談ください。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100">
+        <button class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-gold-500 font-black text-sm flex-shrink-0">Q</span>
+            <span class="font-bold text-navy-700 text-sm">住みながら売却はできますか？</span>
+          </div>
+          <span class="faq-icon text-gold-500 text-xl font-light flex-shrink-0 ml-3">＋</span>
+        </button>
+        <div class="faq-answer px-5">
+          <div class="flex gap-3 pb-4">
+            <span class="text-navy-700 font-black text-sm flex-shrink-0">A</span>
+            <p class="text-gray-600 text-sm leading-relaxed">もちろん可能です。ほとんどのお客様が居住しながら売却されています。内覧の日程調整も事前にご相談の上で進めますのでご安心ください。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100">
+        <button class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-gold-500 font-black text-sm flex-shrink-0">Q</span>
+            <span class="font-bold text-navy-700 text-sm">売却にかかる費用・手数料はいくらですか？</span>
+          </div>
+          <span class="faq-icon text-gold-500 text-xl font-light flex-shrink-0 ml-3">＋</span>
+        </button>
+        <div class="faq-answer px-5">
+          <div class="flex gap-3 pb-4">
+            <span class="text-navy-700 font-black text-sm flex-shrink-0">A</span>
+            <p class="text-gray-600 text-sm leading-relaxed">仲介手数料は「売却価格×3%＋6万円＋消費税」が上限です。その他、印紙税や譲渡所得税が発生する場合があります。詳しくは無料相談でご説明します。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100">
+        <button class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-gold-500 font-black text-sm flex-shrink-0">Q</span>
+            <span class="font-bold text-navy-700 text-sm">売却完了までどれくらいかかりますか？</span>
+          </div>
+          <span class="faq-icon text-gold-500 text-xl font-light flex-shrink-0 ml-3">＋</span>
+        </button>
+        <div class="faq-answer px-5">
+          <div class="flex gap-3 pb-4">
+            <span class="text-navy-700 font-black text-sm flex-shrink-0">A</span>
+            <p class="text-gray-600 text-sm leading-relaxed">平均2〜3ヶ月です。物件の種類・エリア・価格設定によって異なります。お急ぎの場合は「買取保証プラン」で最短1週間での売却も可能です。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100">
+        <button class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-gold-500 font-black text-sm flex-shrink-0">Q</span>
+            <span class="font-bold text-navy-700 text-sm">他社にも査定を依頼してよいですか？</span>
+          </div>
+          <span class="faq-icon text-gold-500 text-xl font-light flex-shrink-0 ml-3">＋</span>
+        </button>
+        <div class="faq-answer px-5">
+          <div class="flex gap-3 pb-4">
+            <span class="text-navy-700 font-black text-sm flex-shrink-0">A</span>
+            <p class="text-gray-600 text-sm leading-relaxed">もちろん構いません。複数社で比較することをむしろお勧めします。他社の査定額が出た後でのご相談も大歓迎です。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100">
+        <button class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-gold-500 font-black text-sm flex-shrink-0">Q</span>
+            <span class="font-bold text-navy-700 text-sm">築年数が古い・空室が多い物件でも売れますか？</span>
+          </div>
+          <span class="faq-icon text-gold-500 text-xl font-light flex-shrink-0 ml-3">＋</span>
+        </button>
+        <div class="faq-answer px-5">
+          <div class="flex gap-3 pb-4">
+            <span class="text-navy-700 font-black text-sm flex-shrink-0">A</span>
+            <p class="text-gray-600 text-sm leading-relaxed">はい、対応可能です。築古物件・空室率の高い収益物件も、リノベーション投資家や土地としての活用など、状況に合わせた最適な売却方法をご提案します。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100">
+        <button class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-gold-500 font-black text-sm flex-shrink-0">Q</span>
+            <span class="font-bold text-navy-700 text-sm">相続した物件の売却も対応してもらえますか？</span>
+          </div>
+          <span class="faq-icon text-gold-500 text-xl font-light flex-shrink-0 ml-3">＋</span>
+        </button>
+        <div class="faq-answer px-5">
+          <div class="flex gap-3 pb-4">
+            <span class="text-navy-700 font-black text-sm flex-shrink-0">A</span>
+            <p class="text-gray-600 text-sm leading-relaxed">はい、相続物件の売却は得意分野の一つです。相続登記（司法書士との連携）から売却まで、ワンストップでサポートします。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100">
+        <button class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-gold-500 font-black text-sm flex-shrink-0">Q</span>
+            <span class="font-bold text-navy-700 text-sm">土日・祝日の相談や内覧対応はできますか？</span>
+          </div>
+          <span class="faq-icon text-gold-500 text-xl font-light flex-shrink-0 ml-3">＋</span>
+        </button>
+        <div class="faq-answer px-5">
+          <div class="flex gap-3 pb-4">
+            <span class="text-navy-700 font-black text-sm flex-shrink-0">A</span>
+            <p class="text-gray-600 text-sm leading-relaxed">はい、年中無休で対応しております。土日・祝日のご相談・内覧対応も可能です。まずはお電話またはフォームよりご連絡ください。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+  ⑧ 査定フォーム CTA
+======================================== -->
+<section id="contact" class="py-20 bg-navy-800" style="background-color:#142850;">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <p class="text-gold-400 text-xs font-bold tracking-widest mb-3">FREE CONSULTATION</p>
+      <h2 class="text-2xl md:text-3xl font-black text-white mb-3">
+        まずは無料査定・ご相談から
+      </h2>
+      <p class="text-white/60 text-sm">査定・相談は完全無料。売却しなくても費用は一切かかりません。</p>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-10">
+      <div class="grid md:grid-cols-2 gap-5">
+        <div>
+          <label class="block text-xs font-bold text-gray-600 mb-1">物件の種別 <span class="text-red-500">*</span></label>
+          <select class="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-navy-700 bg-gray-50">
+            <option value="">選択してください</option>
+            <option>マンション</option>
+            <option>一戸建て</option>
+            <option>土地</option>
+            <option>収益物件（アパート・マンション）</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-600 mb-1">専有面積・規模（目安）</label>
+          <select class="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-navy-700 bg-gray-50">
+            <option value="">選択してください</option>
+            <option>〜50㎡</option>
+            <option>50〜80㎡</option>
+            <option>80〜120㎡</option>
+            <option>120㎡〜</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-600 mb-1">所在地 <span class="text-red-500">*</span></label>
+          <input type="text" placeholder="例）東京都渋谷区〇〇1-1-1"
+            class="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-navy-700 bg-gray-50" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-600 mb-1">売却希望時期</label>
+          <select class="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-navy-700 bg-gray-50">
+            <option value="">選択してください</option>
+            <option>できるだけ早く</option>
+            <option>3ヶ月以内</option>
+            <option>半年以内</option>
+            <option>1年以内</option>
+            <option>まずは相場を知りたい</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-600 mb-1">お名前 <span class="text-red-500">*</span></label>
+          <input type="text" placeholder="山田 太郎"
+            class="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-navy-700 bg-gray-50" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-600 mb-1">電話番号 <span class="text-red-500">*</span></label>
+          <input type="tel" placeholder="090-0000-0000"
+            class="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-navy-700 bg-gray-50" />
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-xs font-bold text-gray-600 mb-1">メールアドレス</label>
+          <input type="email" placeholder="example@email.com"
+            class="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-navy-700 bg-gray-50" />
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-xs font-bold text-gray-600 mb-1">ご相談内容</label>
+          <textarea rows="3" placeholder="ご不明点・ご要望などお気軽にご記入ください"
+            class="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-navy-700 bg-gray-50 resize-none"></textarea>
+        </div>
+      </div>
+      <div class="mt-7 text-center">
+        <button type="submit"
+          class="bg-gold-500 hover:bg-gold-600 text-white font-black text-lg px-14 py-5 rounded-xl transition-all hover:scale-105 shadow-xl w-full md:w-auto">
+          無料査定を依頼する →
+        </button>
+        <p class="text-xs text-gray-400 mt-4">
+          ※ 個人情報は適切に管理し、査定・ご連絡以外には使用しません。<br />
+          ※ <a href="#" class="underline hover:text-gray-600">プライバシーポリシー</a>をご確認ください。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+  電話バナー
+======================================== -->
+<section class="py-10 bg-gold-500">
+  <div class="max-w-3xl mx-auto px-4 text-center">
+    <p class="text-white font-bold mb-1">お電話でのご相談もお気軽にどうぞ</p>
+    <a href="tel:0120-000-000"
+       class="text-white font-black text-4xl md:text-5xl hover:opacity-80 transition-opacity tracking-wide">
+      0120-000-000
+    </a>
+    <p class="text-white/80 text-xs mt-2">受付時間 9:00〜18:00（年中無休）</p>
+  </div>
+</section>
+
+
+<!-- ========================================
+  フッター
+======================================== -->
+<footer class="bg-navy-900 text-white py-12" style="background-color:#0d1c38;">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="grid md:grid-cols-3 gap-8 pb-8 border-b border-white/10">
+      <div>
+        <p class="text-gold-400 font-black text-lg mb-3">HOME TRUST不動産</p>
+        <address class="not-italic text-sm text-white/50 leading-loose">
+          〒000-0000<br />東京都〇〇区〇〇1-1-1<br />
+          TEL: 0120-000-000<br />
+          Email: info@hometrust-example.jp
+        </address>
+      </div>
+      <div>
+        <p class="text-white/70 font-bold text-sm mb-3">営業時間</p>
+        <table class="text-sm text-white/50">
+          <tr><td class="pr-4 py-0.5">月〜金</td><td>9:00〜18:00</td></tr>
+          <tr><td class="pr-4 py-0.5">土・日・祝</td><td>10:00〜17:00</td></tr>
+          <tr><td class="pr-4 py-0.5">定休日</td><td>年中無休</td></tr>
+        </table>
+      </div>
+      <div>
+        <p class="text-white/70 font-bold text-sm mb-3">サイトマップ</p>
+        <ul class="space-y-1 text-sm text-white/50">
+          <li><a href="#trouble" class="hover:text-gold-400 transition-colors">お悩み</a></li>
+          <li><a href="#case"    class="hover:text-gold-400 transition-colors">相談事例</a></li>
+          <li><a href="#reason"  class="hover:text-gold-400 transition-colors">選ばれる理由</a></li>
+          <li><a href="#faq"     class="hover:text-gold-400 transition-colors">よくある質問</a></li>
+          <li><a href="#contact" class="hover:text-gold-400 transition-colors">無料査定を依頼</a></li>
+          <li><a href="#"        class="hover:text-gold-400 transition-colors">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="text-center text-white/30 text-xs pt-6">&copy; 2025 HOME TRUST不動産. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+<!-- スマホ固定CTA -->
+<div class="fixed bottom-0 left-0 right-0 z-40 md:hidden">
+  <div class="flex shadow-2xl">
+    <a href="tel:0120-000-000"
+       class="flex-1 bg-navy-700 text-white text-center py-4 font-bold text-sm flex items-center justify-center gap-1">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+      電話で相談
+    </a>
+    <a href="#contact"
+       class="flex-1 bg-gold-500 text-white text-center py-4 font-bold text-sm">
+      無料査定を依頼
+    </a>
+  </div>
+</div>
+
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('faq-open');
+      document.querySelectorAll('.faq-item').forEach(el => {
+        el.classList.remove('faq-open');
+        el.querySelector('.faq-answer').classList.remove('open');
+      });
+      if (!isOpen) {
+        item.classList.add('faq-open');
+        answer.classList.add('open');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
