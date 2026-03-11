@@ -3,9 +3,11 @@
 .DS_Store?
 ._*
 
-# スクリーンショット
-*.png
+# バックアップ
 *.jpg.bak
+
+# Node.js
+node_modules/
 
 # エディタ設定
 .vscode/

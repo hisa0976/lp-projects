@@ -1,0 +1,9 @@
+{
+  "name": "portfolio-screenshot",
+  "version": "1.0.0",
+  "description": "screenshot tool",
+  "scripts": {},
+  "dependencies": {
+    "puppeteer": "^24.39.0"
+  }
+}
