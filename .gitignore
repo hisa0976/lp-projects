@@ -1,0 +1,12 @@
+# macOSのシステムファイル
+.DS_Store
+.DS_Store?
+._*
+
+# スクリーンショット
+*.png
+*.jpg.bak
+
+# エディタ設定
+.vscode/
+.idea/
