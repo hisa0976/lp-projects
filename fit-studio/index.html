@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fitスタジオ - 運動初心者でも安心！東京都渋谷区のフィットネススタジオ。あなたのペースで始められる、初心者大歓迎のジムです。無料体験受付中！">
+  <meta name="keywords" content="フィットネス,ジム,渋谷,初心者,ダイエット,筋トレ,Fitスタジオ">
+  <meta property="og:title" content="Fitスタジオ | 運動初心者大歓迎のフィットネススタジオ【渋谷】">
+  <meta property="og:description" content="運動が苦手でも大丈夫。あなたのペースで始められる渋谷のフィットネススタジオ。無料体験受付中！">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <title>Fitスタジオ | 運動初心者大歓迎のフィットネススタジオ【渋谷区】</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary:        '#e5592e',
+            'primary-dark': '#c94520',
+            navy:           '#122939',
+            'navy-light':   '#1e3f57',
+            yellow:         '#fff580',
+            'bg-gray':      '#f6f6f6',
+            'bg-blue':      '#ecf0f3',
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', sans-serif; background: #ffffff; color: #122939; }
+
+    /* ヘッダー下線 */
+    .nav-link { position: relative; padding-bottom: 4px; }
+    .nav-link::after {
+      content: '';
+      display: block;
+      width: 0; height: 2px;
+      background: #fff580;
+      transition: width 0.3s ease;
+      position: absolute;
+      bottom: 0; left: 0;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    /* フェードイン */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* オレンジボタン */
+    .btn-orange {
+      background: #e5592e; color: #fff; font-weight: 800;
+      border-radius: 12px;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      display: inline-block;
+    }
+    .btn-orange:hover {
+      background: #c94520;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(229,89,46,0.3);
+    }
+
+    /* ネイビーボタン */
+    .btn-navy {
+      background: #122939; color: #fff; font-weight: 800;
+      border-radius: 12px;
+      transition: background 0.25s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-navy:hover { background: #1e3f57; transform: translateY(-2px); }
+
+    /* アウトラインボタン（ヒーロー用） */
+    .btn-outline-white {
+      border: 2px solid rgba(255,255,255,0.6); color: #fff; font-weight: 700;
+      border-radius: 12px;
+      transition: all 0.25s;
+      display: inline-block;
+    }
+    .btn-outline-white:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+    /* カード */
+    .card {
+      background: #fff; border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(18,41,57,0.08);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .card:hover { box-shadow: 0 8px 32px rgba(18,41,57,0.14); transform: translateY(-4px); }
+
+    /* プログラムカード */
+    .program-card { overflow: hidden; border-radius: 16px; }
+    .program-card img { transition: transform 0.5s ease; }
+    .program-card:hover img { transform: scale(1.06); }
+
+    /* セクションラベル */
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 800;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: #e5592e; margin-bottom: 0.6rem;
+    }
+
+    /* アイコン背景 */
+    .icon-bg { background: #fff0eb; border-radius: 50%; }
+
+    /* シミュレーター ステップボタン */
+    .step-btn {
+      border: 2px solid #d1d5db; border-radius: 12px; font-weight: 700;
+      transition: all 0.2s; cursor: pointer; background: #fff; color: #122939;
+    }
+    .step-btn:hover { border-color: #e5592e; color: #e5592e; }
+    .step-btn.active { border-color: #e5592e; background: #e5592e; color: #fff; }
+
+    /* プランカード */
+    .plan-card {
+      border: 2px solid #e5e7eb; border-radius: 16px;
+      cursor: pointer; transition: all 0.2s; background: #fff;
+    }
+    .plan-card:hover { border-color: #e5592e; }
+    .plan-card.active { border-color: #e5592e; background: #fff8f6; }
+
+    /* 星評価 */
+    .stars { color: #fbbf24; }
+
+    /* 料金テキスト */
+    .price-text { color: #e5592e; font-family: 'Roboto', sans-serif; }
+
+    /* ヒーローオーバーレイ */
+    .hero-overlay {
+      background: linear-gradient(to right, rgba(18,41,57,0.82) 40%, rgba(18,41,57,0.35) 100%);
+    }
+
+    /* ティッカー */
+    .ticker-wrap { overflow: hidden; white-space: nowrap; }
+    .ticker-content { display: inline-block; animation: ticker 22s linear infinite; }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* スクロールバー */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #f6f6f6; }
+    ::-webkit-scrollbar-thumb { background: #e5592e; border-radius: 4px; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 transition-shadow duration-300">
+    <div class="max-w-6xl mx-auto px-4 h-16 md:h-20 flex items-center justify-between gap-4">
+
+      <!-- ロゴ -->
+      <a href="#top" class="flex items-center gap-2 shrink-0">
+        <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:#122939;">
+          <span class="text-white font-black text-base" style="font-family:'Roboto',sans-serif;">F</span>
+        </div>
+        <span class="text-xl font-black tracking-wide" style="color:#122939; font-family:'Roboto',sans-serif;">
+          Fit<span style="color:#e5592e;">スタジオ</span>
+        </span>
+      </a>
+
+      <!-- デスクトップナビ -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium" style="color:#122939;">
+        <a href="#features"  class="nav-link hover:opacity-70 transition-opacity">特徴</a>
+        <a href="#programs"  class="nav-link hover:opacity-70 transition-opacity">プログラム</a>
+        <a href="#simulator" class="nav-link hover:opacity-70 transition-opacity">料金</a>
+        <a href="#voice"     class="nav-link hover:opacity-70 transition-opacity">お客様の声</a>
+        <a href="#access"    class="nav-link hover:opacity-70 transition-opacity">アクセス</a>
+      </nav>
+
+      <!-- CTA -->
+      <a href="#access" class="btn-orange text-sm px-5 py-3 shrink-0">無料体験を申込む</a>
+
+      <!-- ハンバーガー -->
+      <button id="menu-btn" class="lg:hidden p-2" style="color:#122939;">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- モバイルメニュー -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100">
+      <div class="px-4 py-4 flex flex-col gap-1 text-sm">
+        <a href="#features"  class="py-3 px-2 font-medium border-b border-gray-100" style="color:#122939;">特徴</a>
+        <a href="#programs"  class="py-3 px-2 font-medium border-b border-gray-100" style="color:#122939;">プログラム</a>
+        <a href="#simulator" class="py-3 px-2 font-medium border-b border-gray-100" style="color:#122939;">料金</a>
+        <a href="#voice"     class="py-3 px-2 font-medium border-b border-gray-100" style="color:#122939;">お客様の声</a>
+        <a href="#access"    class="py-3 px-2 font-medium border-b border-gray-100" style="color:#122939;">アクセス</a>
+        <a href="#access" class="mt-3 btn-orange text-center py-3 px-4 text-sm">無料体験を申込む</a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ==================== HERO ==================== -->
+  <section id="top" class="relative min-h-screen flex items-center overflow-hidden" style="padding-top:5rem;">
+    <img src="https://placehold.co/1920x1080/1a2a3a/2a3a4a?text=Fit+Studio" alt="Fitスタジオ" class="absolute inset-0 w-full h-full object-cover">
+    <div class="hero-overlay absolute inset-0"></div>
+
+    <div class="relative z-10 w-full max-w-6xl mx-auto px-4 py-20">
+      <div class="max-w-xl">
+        <p class="section-label fade-in" style="color:#fff580 !important;">Fit Studio — Tokyo Shibuya</p>
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-white mb-6 fade-in">
+          はじめての<br>一歩、<br>
+          <span style="color:#fff580;">ここから。</span>
+        </h1>
+
+        <p class="text-white/85 text-base md:text-lg mb-3 leading-relaxed fade-in">
+          運動が苦手でも、ジムが初めてでも大丈夫。<br>
+          専任スタッフが<strong class="text-white">あなたのペース</strong>に合わせて<br>目標まで一緒にサポートします。
+        </p>
+        <p class="text-white/60 text-sm mb-8 fade-in">渋谷駅徒歩5分 ｜ 月〜日 9:00〜21:00 ｜ 入会金無料</p>
+
+        <div class="flex flex-col sm:flex-row gap-3 fade-in">
+          <a href="#access" class="btn-orange text-base px-8 py-4 text-center">無料体験を申込む</a>
+          <a href="#features" class="btn-outline-white text-base px-8 py-4 text-center">詳しく見る</a>
+        </div>
+      </div>
+
+      <!-- 統計 -->
+      <div class="grid grid-cols-3 gap-4 mt-14 pt-10 border-t border-white/20 max-w-sm fade-in">
+        <div class="text-center">
+          <p class="text-3xl font-black text-white" style="font-family:'Roboto',sans-serif;">500<span class="text-xl">+</span></p>
+          <p class="text-white/50 text-xs mt-1">累計会員数</p>
+        </div>
+        <div class="text-center border-x border-white/20">
+          <p class="text-3xl font-black text-white" style="font-family:'Roboto',sans-serif;">98<span class="text-xl">%</span></p>
+          <p class="text-white/50 text-xs mt-1">継続率</p>
+        </div>
+        <div class="text-center">
+          <p class="text-3xl font-black text-white" style="font-family:'Roboto',sans-serif;">4.9</p>
+          <p class="text-white/50 text-xs mt-1">平均評価</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- スクロールヒント -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-50">
+      <p class="text-white text-xs tracking-widest uppercase">Scroll</p>
+      <div class="w-px h-7 bg-gradient-to-b from-white to-transparent"></div>
+    </div>
+  </section>
+
+
+  <!-- ==================== TICKER ==================== -->
+  <div class="ticker-wrap py-3.5" style="background:#122939;">
+    <div class="ticker-content text-sm font-bold" style="color:#fff580;">
+      &#9658; 運動初心者・経験ゼロでも安心&nbsp;&nbsp;&nbsp;
+      &#9658; 専任トレーナーが個別サポート&nbsp;&nbsp;&nbsp;
+      &#9658; 入会金無料・初月会費無料キャンペーン中&nbsp;&nbsp;&nbsp;
+      &#9658; 最新マシン完備&nbsp;&nbsp;&nbsp;
+      &#9658; 月〜日 9:00〜21:00&nbsp;&nbsp;&nbsp;
+      &#9658; 渋谷駅徒歩5分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &#9658; 運動初心者・経験ゼロでも安心&nbsp;&nbsp;&nbsp;
+      &#9658; 専任トレーナーが個別サポート&nbsp;&nbsp;&nbsp;
+      &#9658; 入会金無料・初月会費無料キャンペーン中&nbsp;&nbsp;&nbsp;
+      &#9658; 最新マシン完備&nbsp;&nbsp;&nbsp;
+      &#9658; 月〜日 9:00〜21:00&nbsp;&nbsp;&nbsp;
+      &#9658; 渋谷駅徒歩5分&nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+
+
+  <!-- ==================== FEATURES ==================== -->
+  <section id="features" class="py-20 md:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-14 fade-in">
+        <p class="section-label">Why Choose Us</p>
+        <h2 class="text-3xl md:text-4xl font-black mb-3" style="color:#122939;">
+          Fitスタジオが<span style="color:#e5592e;">選ばれる</span>4つの理由
+        </h2>
+        <p class="text-gray-500 text-sm">初心者が安心して通い続けられる環境を整えています</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- 理由1 -->
+        <div class="card p-8 fade-in">
+          <div class="icon-bg w-14 h-14 flex items-center justify-center mb-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e5592e" stroke-width="1.8" class="w-7 h-7">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-black mb-3" style="color:#122939;">
+            初心者専任スタッフが<span style="color:#e5592e;">丁寧にサポート</span>
+          </h3>
+          <p class="text-gray-500 text-sm leading-relaxed">「何から始めればいいかわからない…」そんな不安を解消。国家資格・各種トレーナー資格を保有したスタッフが入会初日から1対1で丁寧にサポート。マシンの使い方から基本フォームまで基礎からしっかり教えます。</p>
+        </div>
+
+        <!-- 理由2 -->
+        <div class="card p-8 fade-in">
+          <div class="icon-bg w-14 h-14 flex items-center justify-center mb-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e5592e" stroke-width="1.8" class="w-7 h-7">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25Z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-black mb-3" style="color:#122939;">
+            あなただけの<span style="color:#e5592e;">オリジナルプログラム</span>
+          </h3>
+          <p class="text-gray-500 text-sm leading-relaxed">目標・体力・ライフスタイルに合わせた個別プログラムを無料で作成。「ダイエットしたい」「筋肉をつけたい」「姿勢をよくしたい」など、あなたの目的に最短距離でアプローチするプランを提供します。</p>
+        </div>
+
+        <!-- 理由3 -->
+        <div class="card p-8 fade-in">
+          <div class="icon-bg w-14 h-14 flex items-center justify-center mb-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e5592e" stroke-width="1.8" class="w-7 h-7">
+              <rect x="2"  y="10" width="3.5" height="4" rx="1"/>
+              <rect x="18.5" y="10" width="3.5" height="4" rx="1"/>
+              <rect x="5"  y="8"  width="3"   height="8" rx="1"/>
+              <rect x="16" y="8"  width="3"   height="8" rx="1"/>
+              <line x1="8" y1="12" x2="16" y2="12" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-black mb-3" style="color:#122939;">
+            最新マシン完備・<span style="color:#e5592e;">清潔な施設</span>
+          </h3>
+          <p class="text-gray-500 text-sm leading-relaxed">有酸素系・筋力系・ストレッチ系の最新マシンを豊富に完備。施設は毎日清掃・消毒を徹底し、常に清潔な環境でトレーニングできます。更衣室・シャワー室も完備しています。</p>
+        </div>
+
+        <!-- 理由4 -->
+        <div class="card p-8 fade-in">
+          <div class="icon-bg w-14 h-14 flex items-center justify-center mb-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e5592e" stroke-width="1.8" class="w-7 h-7">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-black mb-3" style="color:#122939;">
+            続けやすい<span style="color:#e5592e;">リーズナブルな料金</span>
+          </h3>
+          <p class="text-gray-500 text-sm leading-relaxed">月額7,700円〜と業界最安水準の料金設定。入会金も不要。まずは0円の無料体験から気軽にスタートできます。プロのサポートを受けながら、無理なく続けられる環境を実現しました。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== PROGRAMS ==================== -->
+  <section id="programs" class="py-20 md:py-28" style="background:#f6f6f6;">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-14 fade-in">
+        <p class="section-label">Programs</p>
+        <h2 class="text-3xl md:text-4xl font-black mb-3" style="color:#122939;">
+          あなたの目標に合わせた<br><span style="color:#e5592e;">4つのコース</span>
+        </h2>
+        <p class="text-gray-500 text-sm">どのコースも初心者からスタートOK！まずは無料体験で試してみましょう</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <div class="program-card card fade-in">
+          <img src="https://placehold.co/400x300/ecf0f3/122939?text=Body+Make" alt="ボディメイクコース" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <span class="text-xs font-black px-2.5 py-1 rounded-full mb-3 inline-block" style="background:#fff0eb; color:#e5592e;">初心者向け</span>
+            <h3 class="font-black text-base mb-1" style="color:#122939;">ボディメイクコース</h3>
+            <p class="text-gray-500 text-xs leading-relaxed">基礎代謝を上げながら全身を引き締め。理想の体型へ着実に近づきます。</p>
+          </div>
+        </div>
+
+        <div class="program-card card fade-in">
+          <img src="https://placehold.co/400x300/ecf0f3/122939?text=Diet" alt="ダイエットコース" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <span class="text-xs font-black px-2.5 py-1 rounded-full mb-3 inline-block" style="background:#fefce8; color:#ca8a04;">人気No.1</span>
+            <h3 class="font-black text-base mb-1" style="color:#122939;">ダイエットコース</h3>
+            <p class="text-gray-500 text-xs leading-relaxed">有酸素＋筋トレの最適な組み合わせで効率よく脂肪燃焼します。</p>
+          </div>
+        </div>
+
+        <div class="program-card card fade-in">
+          <img src="https://placehold.co/400x300/ecf0f3/122939?text=Health" alt="健康維持コース" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <span class="text-xs font-black px-2.5 py-1 rounded-full mb-3 inline-block" style="background:#e8eef2; color:#122939;">40代〜おすすめ</span>
+            <h3 class="font-black text-base mb-1" style="color:#122939;">健康維持コース</h3>
+            <p class="text-gray-500 text-xs leading-relaxed">無理なく続けられる軽負荷トレーニングで体のメンテナンスを。</p>
+          </div>
+        </div>
+
+        <div class="program-card card fade-in">
+          <img src="https://placehold.co/400x300/ecf0f3/122939?text=Posture" alt="姿勢改善コース" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <span class="text-xs font-black px-2.5 py-1 rounded-full mb-3 inline-block" style="background:#e8eef2; color:#122939;">デスクワーカー向け</span>
+            <h3 class="font-black text-base mb-1" style="color:#122939;">姿勢改善コース</h3>
+            <p class="text-gray-500 text-xs leading-relaxed">体幹・インナーマッスルを鍛えて正しい姿勢と快適な体へ。</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-10 fade-in">
+        <a href="#access" class="btn-orange text-base px-10 py-4">まずは無料体験で試してみる</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== PRICE SIMULATOR ==================== -->
+  <section id="simulator" class="py-20 md:py-28 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-14 fade-in">
+        <p class="section-label">Price Simulator</p>
+        <h2 class="text-3xl md:text-4xl font-black mb-3" style="color:#122939;">
+          料金プラン<span style="color:#e5592e;">シミュレーター</span>
+        </h2>
+        <p class="text-gray-500 text-sm">目的・頻度・プランを選ぶだけ！あなたの月額料金を今すぐ確認</p>
+      </div>
+
+      <div class="card p-6 md:p-10 fade-in">
+
+        <!-- STEP 1 -->
+        <div class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-7 h-7 rounded-full flex items-center justify-center text-sm font-black text-white shrink-0" style="background:#e5592e;">1</span>
+            <h3 class="font-black" style="color:#122939;">目的を選んでください</h3>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="goal-btns">
+            <button onclick="selectGoal('diet',this)"    class="step-btn p-3 text-sm">ダイエット</button>
+            <button onclick="selectGoal('muscle',this)"  class="step-btn p-3 text-sm">ボディメイク</button>
+            <button onclick="selectGoal('health',this)"  class="step-btn p-3 text-sm">健康維持</button>
+            <button onclick="selectGoal('posture',this)" class="step-btn p-3 text-sm">姿勢改善</button>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-7 h-7 rounded-full flex items-center justify-center text-sm font-black text-white shrink-0" style="background:#e5592e;">2</span>
+            <h3 class="font-black" style="color:#122939;">通う頻度を選んでください</h3>
+          </div>
+          <div class="grid grid-cols-3 gap-3" id="freq-btns">
+            <button onclick="selectFreq('low',this)"  class="step-btn p-3 text-sm">週1〜2回</button>
+            <button onclick="selectFreq('mid',this)"  class="step-btn p-3 text-sm">週3〜4回</button>
+            <button onclick="selectFreq('high',this)" class="step-btn p-3 text-sm">週5回以上</button>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-7 h-7 rounded-full flex items-center justify-center text-sm font-black text-white shrink-0" style="background:#e5592e;">3</span>
+            <h3 class="font-black" style="color:#122939;">契約プランを選んでください</h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="plan-btns">
+
+            <div onclick="selectPlan('monthly',this)" class="plan-card p-5">
+              <p class="text-gray-400 text-xs mb-1">月額プラン</p>
+              <p class="text-2xl font-black price-text">¥7,700<span class="text-sm font-normal text-gray-400">/月</span></p>
+              <p class="text-xs text-gray-400 mt-2">いつでも解約可能</p>
+            </div>
+
+            <div onclick="selectPlan('half',this)" class="plan-card p-5 relative">
+              <span class="absolute -top-2.5 left-4 text-white text-xs font-black px-2.5 py-0.5 rounded-full" style="background:#e5592e;">おすすめ</span>
+              <p class="text-gray-400 text-xs mb-1">半年プラン</p>
+              <p class="text-2xl font-black price-text">¥6,600<span class="text-sm font-normal text-gray-400">/月</span></p>
+              <p class="text-xs font-bold mt-2" style="color:#e5592e;">月額比 約¥6,600お得！</p>
+            </div>
+
+            <div onclick="selectPlan('annual',this)" class="plan-card p-5">
+              <p class="text-gray-400 text-xs mb-1">年間プラン</p>
+              <p class="text-2xl font-black price-text">¥5,500<span class="text-sm font-normal text-gray-400">/月</span></p>
+              <p class="text-xs font-bold mt-2" style="color:#e5592e;">月額比 約¥26,400お得！</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-7 h-7 rounded-full flex items-center justify-center text-sm font-black text-white shrink-0" style="background:#e5592e;">4</span>
+            <h3 class="font-black" style="color:#122939;">
+              オプションを選んでください <span class="text-gray-400 text-xs font-normal">（任意）</span>
+            </h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <label class="flex items-center gap-3 border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-orange-400 transition-colors">
+              <input type="checkbox" id="opt-locker"   onchange="updatePrice()" class="w-4 h-4 accent-orange-500 shrink-0">
+              <div>
+                <p class="font-bold text-sm" style="color:#122939;">専用ロッカー</p>
+                <p class="text-sm font-black mt-0.5" style="color:#e5592e;">+¥1,100/月</p>
+              </div>
+            </label>
+            <label class="flex items-center gap-3 border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-orange-400 transition-colors">
+              <input type="checkbox" id="opt-personal" onchange="updatePrice()" class="w-4 h-4 accent-orange-500 shrink-0">
+              <div>
+                <p class="font-bold text-sm" style="color:#122939;">パーソナル（月4回）</p>
+                <p class="text-sm font-black mt-0.5" style="color:#e5592e;">+¥11,000/月</p>
+              </div>
+            </label>
+            <label class="flex items-center gap-3 border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-orange-400 transition-colors">
+              <input type="checkbox" id="opt-towel"    onchange="updatePrice()" class="w-4 h-4 accent-orange-500 shrink-0">
+              <div>
+                <p class="font-bold text-sm" style="color:#122939;">タオルレンタル</p>
+                <p class="text-sm font-black mt-0.5" style="color:#e5592e;">+¥550/月</p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- 結果 -->
+        <div class="rounded-2xl p-6 md:p-8" style="background:#f6f6f6; border:2px solid #e5592e;">
+          <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div>
+              <p class="text-gray-500 text-xs mb-1">月々のご利用料金（概算）</p>
+              <div class="flex items-end gap-1">
+                <span id="monthly-price" class="text-5xl font-black price-text">¥7,700</span>
+                <span class="text-gray-400 text-sm mb-1">/月</span>
+              </div>
+              <div id="annual-total" class="text-gray-400 text-xs mt-1 hidden">
+                合計：<span id="annual-amount" class="font-bold" style="color:#122939;"></span>
+              </div>
+              <div id="breakdown" class="mt-3 text-xs text-gray-500 space-y-0.5">
+                <div class="flex justify-between gap-8"><span>基本料金（月額プラン）</span><span>¥7,700</span></div>
+              </div>
+              <div id="recommend-msg" class="hidden mt-3 text-xs border rounded-xl p-3" style="background:#fff8f6; border-color:#fecaca; color:#c94520;"></div>
+            </div>
+
+            <div class="w-full md:w-44 shrink-0 text-center">
+              <a href="#access" class="btn-orange block py-4 px-5 text-sm">
+                このプランで<br>無料体験する
+              </a>
+              <p class="text-gray-400 text-xs mt-2">※入会金無料・初月無料中</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section id="voice" class="py-20 md:py-28" style="background:#f6f6f6;">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-14 fade-in">
+        <p class="section-label">Testimonials</p>
+        <h2 class="text-3xl md:text-4xl font-black mb-3" style="color:#122939;">
+          お客様の<span style="color:#e5592e;">リアルな声</span>
+        </h2>
+        <p class="text-gray-500 text-sm">Fitスタジオで変わった方々のご体験談</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="card p-7 fade-in">
+          <div class="stars text-lg mb-3">★★★★★</div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">「運動経験ゼロでビビりながら入会しましたが、スタッフさんが本当に丁寧で安心しました。3ヶ月で5kg減、体脂肪も10%落ちました。友達にもすでに紹介しています。」</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+            <img src="https://placehold.co/48x48/ecf0f3/122939?text=S" alt="Sさん" class="w-12 h-12 rounded-full">
+            <div>
+              <p class="font-black text-sm" style="color:#122939;">S.Kさん・32歳</p>
+              <p class="text-gray-400 text-xs">会社員・女性 ／ ダイエットコース</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-7 fade-in">
+          <div class="stars text-lg mb-3">★★★★★</div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">「40代で初めてジムに通い始めました。健康診断で引っかかったのがきっかけ。半年で血圧・血糖値が正常値に戻り、毎日がとても元気になりました。感謝しています。」</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+            <img src="https://placehold.co/48x48/ecf0f3/122939?text=T" alt="Tさん" class="w-12 h-12 rounded-full">
+            <div>
+              <p class="font-black text-sm" style="color:#122939;">T.Mさん・45歳</p>
+              <p class="text-gray-400 text-xs">自営業・男性 ／ 健康維持コース</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-7 fade-in">
+          <div class="stars text-lg mb-3">★★★★★</div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">「デスクワークで肩こり・腰痛がひどく姿勢改善コースを始めました。2ヶ月で慢性的な腰痛がほぼなくなり、姿勢もよくなったと周りから言われるようになりました。」</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+            <img src="https://placehold.co/48x48/ecf0f3/122939?text=A" alt="Aさん" class="w-12 h-12 rounded-full">
+            <div>
+              <p class="font-black text-sm" style="color:#122939;">A.Nさん・28歳</p>
+              <p class="text-gray-400 text-xs">IT会社員・女性 ／ 姿勢改善コース</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== CTA BANNER ==================== -->
+  <section class="py-16" style="background:#fff580;">
+    <div class="max-w-4xl mx-auto px-4 text-center fade-in">
+      <p class="text-xs font-black tracking-widest uppercase mb-3" style="color:#92400e;">期間限定キャンペーン実施中</p>
+      <h2 class="text-3xl md:text-4xl font-black mb-3" style="color:#122939;">
+        入会金無料 ＋ <span style="color:#e5592e;">初月会費無料</span>
+      </h2>
+      <p class="text-gray-600 text-sm mb-8">まずは無料体験から。あなたのペースで、今日から一緒に変わりましょう。</p>
+      <a href="#access" class="btn-navy text-lg px-12 py-4">無料体験を予約する</a>
+    </div>
+  </section>
+
+
+  <!-- ==================== ACCESS ==================== -->
+  <section id="access" class="py-20 md:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-14 fade-in">
+        <p class="section-label">Access</p>
+        <h2 class="text-3xl md:text-4xl font-black mb-3" style="color:#122939;">
+          店舗情報・<span style="color:#e5592e;">アクセス</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+
+        <div class="card fade-in overflow-hidden">
+          <table class="w-full text-sm">
+            <tbody>
+              <tr class="border-b border-gray-100">
+                <td class="py-4 px-6 font-bold text-gray-500 w-28 align-top">店舗名</td>
+                <td class="py-4 px-4 font-black" style="color:#122939;">Fitスタジオ</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-4 px-6 font-bold text-gray-500 align-top">住所</td>
+                <td class="py-4 px-4 leading-relaxed" style="color:#122939;">東京都渋谷区渋谷1-1-2<br>〇〇ビル1F</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-4 px-6 font-bold text-gray-500 align-top">アクセス</td>
+                <td class="py-4 px-4" style="color:#122939;">渋谷駅 徒歩5分</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-4 px-6 font-bold text-gray-500 align-top">営業時間</td>
+                <td class="py-4 px-4" style="color:#122939;">月〜日曜日<br>9:00〜21:00</td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-bold text-gray-500 align-top">定休日</td>
+                <td class="py-4 px-4" style="color:#122939;">年末年始・GW・その他不定休</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card fade-in overflow-hidden" style="aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; background:#ecf0f3;">
+          <div class="text-center text-gray-400">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" class="w-12 h-12 mx-auto mb-3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/>
+            </svg>
+            <p class="text-sm font-bold" style="color:#122939;">東京都渋谷区渋谷1-1-2</p>
+            <p class="text-xs text-gray-400 mt-1">（Googleマップを埋め込み予定）</p>
+          </div>
+          <!-- Googleマップ使用時はこちらに差し替え:
+          <iframe src="マップURL" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          -->
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="py-10 border-t border-gray-200 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+        <a href="#top" class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:#122939;">
+            <span class="text-white font-black text-sm" style="font-family:'Roboto',sans-serif;">F</span>
+          </div>
+          <span class="text-lg font-black" style="color:#122939; font-family:'Roboto',sans-serif;">
+            Fit<span style="color:#e5592e;">スタジオ</span>
+          </span>
+        </a>
+
+        <nav class="flex flex-wrap justify-center gap-5 text-xs text-gray-400">
+          <a href="#features"  class="hover:text-gray-700 transition-colors">特徴</a>
+          <a href="#programs"  class="hover:text-gray-700 transition-colors">プログラム</a>
+          <a href="#simulator" class="hover:text-gray-700 transition-colors">料金</a>
+          <a href="#voice"     class="hover:text-gray-700 transition-colors">お客様の声</a>
+          <a href="#access" class="hover:text-gray-700 transition-colors">アクセス</a>
+        </nav>
+
+        <p class="text-gray-300 text-xs">© 2025 Fitスタジオ. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+
+    // モバイルメニュー
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+    });
+
+    // ヘッダースクロール
+    window.addEventListener('scroll', () => {
+      const h = document.getElementById('main-header');
+      h.style.boxShadow = window.scrollY > 50 ? '0 4px 20px rgba(18,41,57,0.1)' : 'none';
+    });
+
+    // ---- シミュレーター ----
+    const basePrices = { monthly: 7700, half: 6600, annual: 5500 };
+    const planNames  = { monthly: '月額プラン', half: '半年プラン', annual: '年間プラン' };
+    let state = { goal: null, freq: null, plan: 'monthly' };
+
+    function selectGoal(goal, btn) {
+      state.goal = goal;
+      document.querySelectorAll('#goal-btns .step-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      updatePrice();
+    }
+    function selectFreq(freq, btn) {
+      state.freq = freq;
+      document.querySelectorAll('#freq-btns .step-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      updatePrice();
+    }
+    function selectPlan(plan, card) {
+      state.plan = plan;
+      document.querySelectorAll('#plan-btns .plan-card').forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      updatePrice();
+    }
+
+    function updatePrice() {
+      const base = basePrices[state.plan];
+      let opts = 0;
+      let bd = `<div class="flex justify-between gap-8"><span>基本料金（${planNames[state.plan]}）</span><span>¥${base.toLocaleString()}</span></div>`;
+
+      if (document.getElementById('opt-locker').checked)   { opts += 1100;  bd += `<div class="flex justify-between gap-8"><span>専用ロッカー</span><span>+¥1,100</span></div>`; }
+      if (document.getElementById('opt-personal').checked) { opts += 11000; bd += `<div class="flex justify-between gap-8"><span>パーソナルトレーニング（月4回）</span><span>+¥11,000</span></div>`; }
+      if (document.getElementById('opt-towel').checked)    { opts += 550;   bd += `<div class="flex justify-between gap-8"><span>タオルレンタル</span><span>+¥550</span></div>`; }
+
+      const total = base + opts;
+      document.getElementById('monthly-price').textContent = `¥${total.toLocaleString()}`;
+      document.getElementById('breakdown').innerHTML = bd;
+
+      const annDiv = document.getElementById('annual-total');
+      if (state.plan === 'half') {
+        annDiv.classList.remove('hidden');
+        document.getElementById('annual-amount').textContent = `¥${(total * 6).toLocaleString()}（6ヶ月）`;
+      } else if (state.plan === 'annual') {
+        annDiv.classList.remove('hidden');
+        document.getElementById('annual-amount').textContent = `¥${(total * 12).toLocaleString()}（12ヶ月）`;
+      } else {
+        annDiv.classList.add('hidden');
+      }
+
+      const msgEl = document.getElementById('recommend-msg');
+      let msg = '';
+      if      (state.freq === 'high' && state.plan === 'monthly') msg = '週5回以上通うなら年間プランがお得！月々¥2,200節約できます。';
+      else if (state.goal === 'muscle')                           msg = 'ボディメイク目標の方にはパーソナルトレーニングの追加が効果的です。';
+      else if (state.goal === 'health' && state.freq === 'low')  msg = 'まずは月額プランでゆっくりスタートするのがおすすめです。';
+      else if (state.goal === 'posture')                         msg = '姿勢改善には継続が大切。半年プランで習慣化しやすい環境を整えましょう。';
+      else if (state.goal === 'diet'   && state.freq === 'high') msg = '毎日通うダイエット派には年間プランが最もコスパ抜群です。';
+
+      if (msg) { msgEl.textContent = msg; msgEl.classList.remove('hidden'); }
+      else     { msgEl.classList.add('hidden'); }
+    }
+
+    // 初期：月額を選択済みに
+    document.querySelector('#plan-btns .plan-card').classList.add('active');
+
+    // スクロールアニメーション
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  </script>
+
+</body>
+</html>
