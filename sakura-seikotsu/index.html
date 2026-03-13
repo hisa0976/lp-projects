@@ -16,10 +16,10 @@
       theme: {
         extend: {
           colors: {
-            green:      '#2d8a6e',
-            'green-dark':  '#1f6b55',
-            'green-light': '#e8f5f1',
-            'green-mid':   '#4aab8b',
+            green:         '#db2777',
+            'green-dark':  '#9d174d',
+            'green-light': '#fdf2f8',
+            'green-mid':   '#f472b6',
           },
           fontFamily: {
             sans: ['"游ゴシック"', '"Yu Gothic"', 'YuGothic', 'sans-serif'],
@@ -32,54 +32,54 @@
     html { scroll-behavior: smooth; }
     body { background: #ffffff; color: #1a1a1a; font-family: '游ゴシック', 'Yu Gothic', YuGothic, sans-serif; }
 
-    /* グリーンの区切り線 */
+    /* アクセントラインをピンク系に */
     .green-line {
-      background: linear-gradient(90deg, transparent, #2d8a6e, transparent);
+      background: linear-gradient(90deg, transparent, #f9a8d4, transparent);
       height: 2px;
     }
 
-    /* ヒーローオーバーレイ */
+    /* ヒーローオーバーレイ：リセット（白系・清潔感） */
     .hero-overlay {
-      background: linear-gradient(135deg, rgba(45,138,110,0.88) 0%, rgba(31,107,85,0.75) 100%);
+      background: rgba(255, 255, 255, 0.80);
     }
 
-    /* ボタン */
+    /* ボタン：ピンク系 */
     .btn-green {
-      background: #2d8a6e;
+      background: #db2777;
       color: #fff;
       transition: all 0.3s;
     }
     .btn-green:hover {
-      background: #1f6b55;
+      background: #be185d;
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(45,138,110,0.4);
+      box-shadow: 0 6px 20px rgba(219,39,119,0.35);
     }
     .btn-outline-green {
-      border: 2px solid #2d8a6e;
-      color: #2d8a6e;
+      border: 2px solid #db2777;
+      color: #db2777;
       transition: all 0.3s;
     }
     .btn-outline-green:hover {
-      background: #2d8a6e;
+      background: #db2777;
       color: #fff;
       transform: translateY(-2px);
     }
     .btn-red {
-      background: #e74c3c;
+      background: #dc2626;
       color: #fff;
-      transition: all 0.3s;
+      transition: all 0.3s ease;
     }
     .btn-red:hover {
-      background: #c0392b;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(231,76,60,0.4);
+      background: #f87171;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(220, 38, 38, 0.5);
     }
 
     /* ナビ */
-    .nav-link:hover { color: #2d8a6e; }
+    .nav-link:hover { color: #db2777; }
 
     /* チェックリスト */
-    .symptom-card:hover { border-color: #2d8a6e; box-shadow: 0 4px 20px rgba(45,138,110,0.12); }
+    .symptom-card:hover { border-color: #f9a8d4; box-shadow: 0 4px 20px rgba(249,168,212,0.25); }
 
     /* FAQアコーディオン */
     .faq-answer { display: none; }
@@ -88,10 +88,10 @@
     .faq-arrow { transition: transform 0.3s; }
 
     /* ステップ */
-    .step-line { background: #2d8a6e; }
+    .step-line { background: #f9a8d4; }
 
     /* 診療時間テーブル */
-    .time-table td, .time-table th { border: 1px solid #e0f0eb; }
+    .time-table td, .time-table th { border: 1px solid #fce7f3; }
 
     /* 星 */
     .star { color: #f59e0b; }
@@ -101,8 +101,8 @@
       animation: pulse 2s infinite;
     }
     @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(45,138,110,0.4); }
-      50% { box-shadow: 0 0 0 10px rgba(45,138,110,0); }
+      0%, 100% { box-shadow: 0 0 0 0 rgba(219,39,119,0.4); }
+      50% { box-shadow: 0 0 0 10px rgba(219,39,119,0); }
     }
   </style>
 </head>
@@ -113,7 +113,7 @@
   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
     <div class="flex items-center gap-2">
       <span class="text-2xl">🌸</span>
-      <span class="font-bold text-green text-lg tracking-wide">さくら整骨院</span>
+      <span class="font-bold text-pink-600 text-lg tracking-wide">さくら整骨院</span>
     </div>
     <div class="hidden md:flex gap-6 text-sm text-gray-600">
       <a href="#symptoms" class="nav-link transition-colors">症状</a>
@@ -133,7 +133,7 @@
 <!-- ===== 1. ヒーロー ===== -->
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
   <img
-    src="https://placehold.co/1600x900/1f6b55/2d8a6e?text=さくら整骨院"
+    src="https://placehold.co/1600x900/fce7f3/f9a8d4?text=さくら整骨院"
     alt="さくら整骨院"
     class="absolute inset-0 w-full h-full object-cover"
   />
@@ -145,16 +145,16 @@
       <span>⚠</span> 交通事故後は早期治療が回復の鍵です
     </div>
 
-    <h1 class="text-3xl md:text-5xl font-bold text-white mb-5 leading-tight drop-shadow-lg">
+    <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-5 leading-tight drop-shadow-sm">
       交通事故のつらい痛み、<br />
-      <span class="text-yellow-300">我慢していませんか？</span>
+      <span class="text-pink-600">我慢していませんか？</span>
     </h1>
 
-    <p class="text-green-100 text-base md:text-lg mb-3">
+    <p class="text-gray-600 text-base md:text-lg mb-3">
       むちうち・首の痛み・腰痛・しびれ…事故後の症状はすぐにご相談を
     </p>
-    <p class="text-white text-xl font-bold mb-8 bg-white bg-opacity-20 inline-block px-6 py-2 rounded-lg">
-      自賠責保険対応 ➡ <span class="text-yellow-300 text-2xl">自己負担 0円</span>
+    <p class="text-gray-800 text-xl font-bold mb-8 bg-pink-50 border border-pink-200 inline-block px-6 py-2 rounded-lg">
+      自賠責保険対応 ➡ <span class="text-pink-600 text-2xl">自己負担 0円</span>
     </p>
 
     <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
@@ -166,7 +166,7 @@
       </a>
     </div>
 
-    <p class="text-green-100 text-xs">
+    <p class="text-gray-500 text-xs">
       受付時間：平日 9:00〜20:00 ／ 土・日・祝 9:00〜18:00｜年中無休
     </p>
   </div>
@@ -637,7 +637,7 @@
             </svg>
             無料相談はこちら
           </a>
-          <a href="https://forms.gle/yHQDMeMhdc2TXDFj8" target="_blank" rel="noopener noreferrer" class="flex-1 font-bold text-lg py-4 rounded-xl tracking-wider flex items-center justify-center gap-2 shadow-md border-2 border-green-600 text-green-700 bg-white hover:bg-green-50 transition-colors">
+          <a href="https://forms.gle/yHQDMeMhdc2TXDFj8" target="_blank" rel="noopener noreferrer" class="flex-1 font-bold text-lg py-4 rounded-xl tracking-wider flex items-center justify-center gap-2 shadow-md border-2 border-pink-400 text-pink-900 bg-pink-100 hover:bg-pink-200 transition-colors">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
             </svg>
@@ -1105,14 +1105,14 @@
 </section>
 
 <!-- ===== 10. 予約CTA ===== -->
-<section id="reserve" class="py-20 px-4 bg-green">
+<section id="reserve" class="py-20 px-4 bg-pink-50">
   <div class="max-w-3xl mx-auto text-center">
-    <p class="text-green-100 text-xs tracking-[0.3em] mb-4">RESERVATION</p>
-    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+    <p class="text-pink-400 text-xs tracking-[0.3em] mb-4">RESERVATION</p>
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
       まずはお気軽に<br />無料相談ください
     </h2>
-    <div class="w-16 h-0.5 bg-white bg-opacity-40 mx-auto my-6"></div>
-    <p class="text-green-100 text-sm mb-10 leading-relaxed">
+    <div class="w-16 h-0.5 bg-pink-300 mx-auto my-6"></div>
+    <p class="text-gray-500 text-sm mb-10 leading-relaxed">
       交通事故後の症状でお悩みの方、保険の手続きでご不安な方、<br />
       どんな小さな疑問でもお気軽にご相談ください。
     </p>
@@ -1140,7 +1140,7 @@
       </a>
     </div>
 
-    <p class="text-green-100 text-xs">
+    <p class="text-gray-400 text-xs">
       電話受付：9:00〜20:00（年中無休）<br />
       Webは24時間受付・翌営業日にご連絡いたします
     </p>
@@ -1148,15 +1148,15 @@
 </section>
 
 <!-- ===== フッター ===== -->
-<footer class="bg-gray-900 text-white py-10 px-4 text-center">
+<footer class="bg-pink-100 py-10 px-4 text-center">
   <div class="flex items-center justify-center gap-2 mb-2">
     <span class="text-2xl">🌸</span>
-    <span class="font-bold text-lg tracking-wide">さくら整骨院</span>
+    <span class="font-bold text-lg tracking-wide text-pink-700">さくら整骨院</span>
   </div>
-  <p class="text-gray-400 text-xs mb-1">〒530-0001 大阪府大阪市北区梅田○丁目○○</p>
-  <p class="text-gray-400 text-xs mb-4">TEL: 06-0000-0000 ／ 診療時間: 9:00〜20:00（年中無休）</p>
-  <div class="w-12 h-px bg-gray-700 mx-auto mb-4"></div>
-  <p class="text-gray-600 text-xs">&copy; 2025 さくら整骨院 All Rights Reserved.</p>
+  <p class="text-gray-500 text-xs mb-1">〒530-0001 大阪府大阪市北区梅田○丁目○○</p>
+  <p class="text-gray-500 text-xs mb-4">TEL: 06-0000-0000 ／ 診療時間: 9:00〜20:00（年中無休）</p>
+  <div class="w-12 h-px bg-pink-300 mx-auto mb-4"></div>
+  <p class="text-gray-400 text-xs">&copy; 2025 さくら整骨院 All Rights Reserved.</p>
 </footer>
 
 </body>
