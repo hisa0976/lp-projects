@@ -138,7 +138,7 @@
 
     /* ヒーローオーバーレイ */
     .hero-overlay {
-      background: linear-gradient(to right, rgba(18,41,57,0.82) 40%, rgba(18,41,57,0.35) 100%);
+      background: linear-gradient(to right, rgba(30,100,160,0.75) 40%, rgba(100,180,230,0.30) 100%);
     }
 
     /* ティッカー */
@@ -208,7 +208,186 @@
 
   <!-- ==================== HERO ==================== -->
   <section id="top" class="relative min-h-screen flex items-center overflow-hidden" style="padding-top:5rem;">
-    <img src="https://placehold.co/1920x1080/1a2a3a/2a3a4a?text=Fit+Studio" alt="Fitスタジオ" class="absolute inset-0 w-full h-full object-cover">
+    <!-- ヒーロー背景：フィットネスイラスト（インラインSVG） -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" class="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3aafe0"/>
+          <stop offset="60%" stop-color="#7dd3f2"/>
+          <stop offset="100%" stop-color="#c0e8f8"/>
+        </linearGradient>
+        <linearGradient id="groundGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#8ccfe8"/>
+          <stop offset="100%" stop-color="#6ab8d8"/>
+        </linearGradient>
+      </defs>
+
+      <!-- 空のグラデーション背景 -->
+      <rect width="1920" height="1080" fill="url(#skyGrad)"/>
+
+      <!-- 大きな装飾円（奥行き感） -->
+      <circle cx="300"  cy="800" r="320" fill="rgba(255,255,255,0.05)"/>
+      <circle cx="1650" cy="900" r="280" fill="rgba(255,255,255,0.04)"/>
+      <circle cx="960"  cy="500" r="450" fill="rgba(255,255,255,0.03)"/>
+
+      <!-- 雲 その1（左上） -->
+      <g opacity="0.8">
+        <ellipse cx="260"  cy="175" rx="125" ry="52" fill="white" opacity="0.75"/>
+        <ellipse cx="340"  cy="158" rx="85"  ry="58" fill="white" opacity="0.85"/>
+        <ellipse cx="195"  cy="188" rx="72"  ry="42" fill="white" opacity="0.7"/>
+        <ellipse cx="390"  cy="180" rx="62"  ry="42" fill="white" opacity="0.78"/>
+      </g>
+      <!-- 雲 その2（右上） -->
+      <g opacity="0.7">
+        <ellipse cx="1570" cy="138" rx="145" ry="56" fill="white" opacity="0.7"/>
+        <ellipse cx="1655" cy="122" rx="92"  ry="62" fill="white" opacity="0.8"/>
+        <ellipse cx="1500" cy="150" rx="78"  ry="44" fill="white" opacity="0.65"/>
+        <ellipse cx="1715" cy="148" rx="66"  ry="40" fill="white" opacity="0.7"/>
+      </g>
+      <!-- 雲 その3（中央） -->
+      <g opacity="0.5">
+        <ellipse cx="900"  cy="118" rx="92"  ry="38" fill="white" opacity="0.6"/>
+        <ellipse cx="965"  cy="104" rx="62"  ry="44" fill="white" opacity="0.68"/>
+        <ellipse cx="845"  cy="128" rx="56"  ry="32" fill="white" opacity="0.55"/>
+      </g>
+
+      <!-- 地面 -->
+      <rect x="0" y="875" width="1920" height="205" fill="url(#groundGrad)"/>
+      <line x1="0" y1="875" x2="1920" y2="875" stroke="#5ab0d0" stroke-width="4"/>
+
+      <!-- ===== 人物1：ダンベルバイセプスカール (x=790) ===== -->
+      <circle cx="790" cy="512" r="32" fill="#1a4a7c"/>
+      <rect   x="772" y="544" width="36" height="130" rx="8" fill="#1a4a7c"/>
+      <!-- 右腕：上腕↓→ 前腕カール↑ -->
+      <line x1="772" y1="575" x2="742" y2="638" stroke="#1a4a7c" stroke-width="20" stroke-linecap="round"/>
+      <line x1="742" y1="638" x2="712" y2="574" stroke="#1a4a7c" stroke-width="20" stroke-linecap="round"/>
+      <!-- 左腕：ダンベル下げ -->
+      <line x1="808" y1="575" x2="840" y2="672" stroke="#1a4a7c" stroke-width="20" stroke-linecap="round"/>
+      <!-- ダンベル右（上げ中） -->
+      <rect x="698" y="558" width="26" height="11" rx="5" fill="#2a7ab8"/>
+      <rect x="688" y="551" width="11" height="24" rx="3" fill="#1a5a9c"/>
+      <rect x="724" y="551" width="11" height="24" rx="3" fill="#1a5a9c"/>
+      <!-- ダンベル左（下げ中） -->
+      <rect x="828" y="674" width="26" height="11" rx="5" fill="#2a7ab8"/>
+      <rect x="818" y="667" width="11" height="24" rx="3" fill="#1a5a9c"/>
+      <rect x="854" y="667" width="11" height="24" rx="3" fill="#1a5a9c"/>
+      <!-- 脚 -->
+      <rect x="767" y="674" width="24" height="174" rx="8" fill="#1a4a7c"/>
+      <rect x="797" y="674" width="24" height="174" rx="8" fill="#1a4a7c"/>
+      <ellipse cx="779" cy="872" rx="29" ry="12" fill="#0d2d4f"/>
+      <ellipse cx="809" cy="872" rx="29" ry="12" fill="#0d2d4f"/>
+
+      <!-- ===== 人物2：バーベルスクワット (x=975) ===== -->
+      <circle cx="972" cy="530" r="33" fill="#1a4a7c"/>
+      <!-- 胴体（前傾） -->
+      <rect x="953" y="563" width="44" height="115" rx="8" fill="#1a4a7c" transform="rotate(-8,975,620)"/>
+      <!-- 腕：バーを掴む -->
+      <line x1="953" y1="590" x2="896" y2="560" stroke="#1a4a7c" stroke-width="20" stroke-linecap="round"/>
+      <line x1="999" y1="590" x2="1056" y2="560" stroke="#1a4a7c" stroke-width="20" stroke-linecap="round"/>
+      <!-- バーベルバー -->
+      <rect x="866" y="550" width="220" height="14" rx="7" fill="#2a7ab8"/>
+      <rect x="844" y="533" width="22" height="48" rx="4" fill="#1a5a9c"/>
+      <rect x="826" y="539" width="16" height="36" rx="3" fill="#104880"/>
+      <rect x="1088" y="533" width="22" height="48" rx="4" fill="#1a5a9c"/>
+      <rect x="1110" y="539" width="16" height="36" rx="3" fill="#104880"/>
+      <!-- 脚：スクワット -->
+      <line x1="957" y1="678" x2="905" y2="788" stroke="#1a4a7c" stroke-width="28" stroke-linecap="round"/>
+      <line x1="905" y1="788" x2="932" y2="875" stroke="#1a4a7c" stroke-width="26" stroke-linecap="round"/>
+      <line x1="995" y1="678" x2="1048" y2="788" stroke="#1a4a7c" stroke-width="28" stroke-linecap="round"/>
+      <line x1="1048" y1="788" x2="1020" y2="875" stroke="#1a4a7c" stroke-width="26" stroke-linecap="round"/>
+      <ellipse cx="934"  cy="874" rx="31" ry="12" fill="#0d2d4f"/>
+      <ellipse cx="1020" cy="874" rx="31" ry="12" fill="#0d2d4f"/>
+
+      <!-- ===== 人物3：オーバーヘッドバーベルプレス (x=1155) ===== -->
+      <circle cx="1155" cy="512" r="33" fill="#1a4a7c"/>
+      <rect   x="1136" y="545" width="42" height="130" rx="9" fill="#1a4a7c"/>
+      <line x1="1136" y1="578" x2="1068" y2="472" stroke="#1a4a7c" stroke-width="22" stroke-linecap="round"/>
+      <line x1="1178" y1="578" x2="1246" y2="472" stroke="#1a4a7c" stroke-width="22" stroke-linecap="round"/>
+      <rect x="1030" y="460" width="250" height="14" rx="7" fill="#2a7ab8"/>
+      <rect x="1008" y="443" width="22" height="48" rx="4" fill="#1a5a9c"/>
+      <rect x="990"  y="449" width="16" height="36" rx="3" fill="#104880"/>
+      <rect x="1280" y="443" width="22" height="48" rx="4" fill="#1a5a9c"/>
+      <rect x="1298" y="449" width="16" height="36" rx="3" fill="#104880"/>
+      <rect x="1130" y="675" width="26" height="162" rx="9" fill="#1a4a7c"/>
+      <rect x="1162" y="675" width="26" height="162" rx="9" fill="#1a4a7c"/>
+      <ellipse cx="1143" cy="872" rx="32" ry="13" fill="#0d2d4f"/>
+      <ellipse cx="1175" cy="872" rx="32" ry="13" fill="#0d2d4f"/>
+
+
+      <!-- ===== 人物4：ケトルベルスイング (x≈1390) ===== -->
+      <g transform="translate(-275,0)">
+        <circle cx="1665" cy="510" r="31" fill="#1a4a7c"/>
+        <rect   x="1648" y="541" width="38" height="125" rx="8" fill="#1a4a7c"/>
+        <line x1="1648" y1="578" x2="1612" y2="530" stroke="#1a4a7c" stroke-width="21" stroke-linecap="round"/>
+        <line x1="1686" y1="578" x2="1722" y2="530" stroke="#1a4a7c" stroke-width="21" stroke-linecap="round"/>
+        <path d="M 1612 530 Q 1667 498 1722 530" stroke="#2a7ab8" stroke-width="14" fill="none" stroke-linecap="round"/>
+        <circle cx="1667" cy="558" r="30" fill="#1a5a9c"/>
+        <circle cx="1667" cy="558" r="22" fill="#1a4a7c"/>
+        <rect x="1643" y="666" width="26" height="162" rx="8" fill="#1a4a7c"/>
+        <rect x="1675" y="666" width="26" height="162" rx="8" fill="#1a4a7c"/>
+        <ellipse cx="1656" cy="872" rx="30" ry="12" fill="#0d2d4f"/>
+        <ellipse cx="1688" cy="872" rx="30" ry="12" fill="#0d2d4f"/>
+      </g>
+
+      <!-- ===== 人物5：ヨガ ウォーリアII (x≈1598) ===== -->
+      <g transform="translate(-210,0)">
+        <circle cx="1808" cy="512" r="31" fill="#1a4a7c"/>
+        <rect   x="1791" y="543" width="40" height="122" rx="9" fill="#1a4a7c"/>
+        <line x1="1791" y1="577" x2="1698" y2="582" stroke="#1a4a7c" stroke-width="21" stroke-linecap="round"/>
+        <line x1="1831" y1="577" x2="1912" y2="572" stroke="#1a4a7c" stroke-width="21" stroke-linecap="round"/>
+        <line x1="1798" y1="665" x2="1748" y2="797" stroke="#1a4a7c" stroke-width="29" stroke-linecap="round"/>
+        <line x1="1748" y1="797" x2="1730" y2="875" stroke="#1a4a7c" stroke-width="27" stroke-linecap="round"/>
+        <line x1="1824" y1="665" x2="1895" y2="798" stroke="#1a4a7c" stroke-width="29" stroke-linecap="round"/>
+        <line x1="1895" y1="798" x2="1912" y2="875" stroke="#1a4a7c" stroke-width="27" stroke-linecap="round"/>
+        <ellipse cx="1732" cy="874" rx="31" ry="12" fill="#0d2d4f"/>
+        <ellipse cx="1912" cy="874" rx="31" ry="12" fill="#0d2d4f"/>
+      </g>
+
+      <!-- ===== 装飾：浮かぶダンベル（4個） ===== -->
+      <g transform="rotate(-18,185,355)" opacity="0.45">
+        <rect x="147" y="348" width="76" height="13" rx="6" fill="white"/>
+        <rect x="132" y="336" width="18" height="36" rx="5" fill="rgba(255,255,255,0.85)"/>
+        <rect x="218" y="336" width="18" height="36" rx="5" fill="rgba(255,255,255,0.85)"/>
+      </g>
+      <g transform="rotate(12,200,650)" opacity="0.3">
+        <rect x="163" y="644" width="68" height="11" rx="5" fill="white"/>
+        <rect x="149" y="633" width="15" height="30" rx="4" fill="rgba(255,255,255,0.75)"/>
+        <rect x="229" y="633" width="15" height="30" rx="4" fill="rgba(255,255,255,0.75)"/>
+      </g>
+      <g transform="rotate(8,820,320)" opacity="0.35">
+        <rect x="788" y="314" width="56" height="10" rx="5" fill="white"/>
+        <rect x="776" y="304" width="13" height="28" rx="3" fill="rgba(255,255,255,0.7)"/>
+        <rect x="843" y="304" width="13" height="28" rx="3" fill="rgba(255,255,255,0.7)"/>
+      </g>
+      <g transform="rotate(-10,1450,380)" opacity="0.32">
+        <rect x="1418" y="374" width="64" height="11" rx="5" fill="white"/>
+        <rect x="1406" y="363" width="14" height="30" rx="4" fill="rgba(255,255,255,0.75)"/>
+        <rect x="1480" y="363" width="14" height="30" rx="4" fill="rgba(255,255,255,0.75)"/>
+      </g>
+
+      <!-- ===== 装飾：キラキラ ===== -->
+      <text x="676"  y="262" font-size="34" fill="rgba(255,255,255,0.72)">✦</text>
+      <text x="1235" y="318" font-size="28" fill="rgba(255,255,255,0.60)">✦</text>
+      <text x="1580" y="295" font-size="22" fill="rgba(255,255,255,0.55)">✦</text>
+      <text x="516"  y="385" font-size="20" fill="rgba(255,255,255,0.5)">✦</text>
+      <text x="812"  y="198" font-size="18" fill="rgba(255,255,255,0.5)">✦</text>
+      <text x="1760" y="252" font-size="22" fill="rgba(255,255,255,0.55)">✦</text>
+
+      <!-- 小さなドット群 -->
+      <g fill="rgba(255,255,255,0.22)">
+        <circle cx="455" cy="295" r="6"/>
+        <circle cx="508" cy="338" r="4"/>
+        <circle cx="422" cy="378" r="5"/>
+        <circle cx="484" cy="418" r="3"/>
+        <circle cx="558" cy="288" r="4"/>
+        <circle cx="540" cy="450" r="3"/>
+      </g>
+
+      <!-- ハートビート風ライン（左下） -->
+      <path d="M 580 710 L 625 710 L 648 660 L 672 760 L 695 710 L 740 710"
+            stroke="rgba(255,255,255,0.42)" stroke-width="5" fill="none"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
     <div class="hero-overlay absolute inset-0"></div>
 
     <div class="relative z-10 w-full max-w-6xl mx-auto px-4 py-20">
